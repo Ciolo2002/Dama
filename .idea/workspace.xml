@@ -21,7 +21,12 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
   <component name="ProjectId" id="27lLFCH1OKzA5kx3FyMTmfTwsoD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -53,6 +58,7 @@
       <workItem from="1649889676903" duration="29000" />
       <workItem from="1649889714150" duration="82000" />
       <workItem from="1649889804659" duration="38000" />
+      <workItem from="1649889851608" duration="450000" />
     </task>
     <servers />
   </component>
@@ -80,9 +86,13 @@
       <screen x="0" y="25" width="1440" height="806" />
     </state>
     <state x="229" y="64" key="SettingsEditor/0.25.1440.806@0.25.1440.806" timestamp="1649889795154" />
-    <state x="397" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1649889806175">
+    <state x="397" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1649890340399">
       <screen x="0" y="25" width="1440" height="806" />
     </state>
-    <state x="397" y="257" key="com.intellij.ide.util.TipDialog/0.25.1440.806@0.25.1440.806" timestamp="1649889806175" />
+    <state x="397" y="257" key="com.intellij.ide.util.TipDialog/0.25.1440.806@0.25.1440.806" timestamp="1649890340399" />
+    <state x="506" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1649890352626">
+      <screen x="0" y="25" width="1440" height="806" />
+    </state>
+    <state x="506" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.806@0.25.1440.806" timestamp="1649890352626" />
   </component>
 </project>
