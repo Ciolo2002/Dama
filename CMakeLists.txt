@@ -3,4 +3,10 @@ project(Dama)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Dama main.cpp)
+include_directories(.)
+
+add_executable(Dama
+    play.cpp
+    player.cpp
+    player.hpp
+    verify.cpp)
