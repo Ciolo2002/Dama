@@ -123,32 +123,86 @@ Dama/fast:
 	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/build
 .PHONY : Dama/fast
 
-main.o: main.cpp.o
+play.o: play.cpp.o
 
-.PHONY : main.o
+.PHONY : play.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/main.cpp.o
-.PHONY : main.cpp.o
+play.cpp.o:
+	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/play.cpp.o
+.PHONY : play.cpp.o
 
-main.i: main.cpp.i
+play.i: play.cpp.i
 
-.PHONY : main.i
+.PHONY : play.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/main.cpp.i
-.PHONY : main.cpp.i
+play.cpp.i:
+	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/play.cpp.i
+.PHONY : play.cpp.i
 
-main.s: main.cpp.s
+play.s: play.cpp.s
 
-.PHONY : main.s
+.PHONY : play.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/main.cpp.s
-.PHONY : main.cpp.s
+play.cpp.s:
+	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/play.cpp.s
+.PHONY : play.cpp.s
+
+player.o: player.cpp.o
+
+.PHONY : player.o
+
+# target to build an object file
+player.cpp.o:
+	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/player.cpp.o
+.PHONY : player.cpp.o
+
+player.i: player.cpp.i
+
+.PHONY : player.i
+
+# target to preprocess a source file
+player.cpp.i:
+	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/player.cpp.i
+.PHONY : player.cpp.i
+
+player.s: player.cpp.s
+
+.PHONY : player.s
+
+# target to generate assembly for a file
+player.cpp.s:
+	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/player.cpp.s
+.PHONY : player.cpp.s
+
+verify.o: verify.cpp.o
+
+.PHONY : verify.o
+
+# target to build an object file
+verify.cpp.o:
+	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/verify.cpp.o
+.PHONY : verify.cpp.o
+
+verify.i: verify.cpp.i
+
+.PHONY : verify.i
+
+# target to preprocess a source file
+verify.cpp.i:
+	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/verify.cpp.i
+.PHONY : verify.cpp.i
+
+verify.s: verify.cpp.s
+
+.PHONY : verify.s
+
+# target to generate assembly for a file
+verify.cpp.s:
+	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/verify.cpp.s
+.PHONY : verify.cpp.s
 
 # Help Target
 help:
@@ -159,9 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Dama"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... play.o"
+	@echo "... play.i"
+	@echo "... play.s"
+	@echo "... player.o"
+	@echo "... player.i"
+	@echo "... player.s"
+	@echo "... verify.o"
+	@echo "... verify.i"
+	@echo "... verify.s"
 .PHONY : help
 
 

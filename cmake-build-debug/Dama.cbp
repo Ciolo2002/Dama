@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/omarceretta/CLionProjects/Dama/."/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.1.6/include"/>
@@ -65,6 +66,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/omarceretta/CLionProjects/Dama/."/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.1.6/include"/>
@@ -80,7 +82,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/omarceretta/CLionProjects/Dama/main.cpp">
+		<Unit filename="/Users/omarceretta/CLionProjects/Dama/play.cpp">
+			<Option target="Dama"/>
+		</Unit>
+		<Unit filename="/Users/omarceretta/CLionProjects/Dama/player.cpp">
+			<Option target="Dama"/>
+		</Unit>
+		<Unit filename="/Users/omarceretta/CLionProjects/Dama/player.hpp">
+			<Option target="Dama"/>
+		</Unit>
+		<Unit filename="/Users/omarceretta/CLionProjects/Dama/verify.cpp">
 			<Option target="Dama"/>
 		</Unit>
 		<Unit filename="/Users/omarceretta/CLionProjects/Dama/CMakeLists.txt">

@@ -12,9 +12,10 @@ using std::string;
 
 int main(int argc, char **argv){
 	
-	int player_nr = atoi(argv[1]);	
+	int player_nr = 1;
+
 	Player p(player_nr);
-	
+
 	cout << "Playing as player " << player_nr << endl;
 	
 	int round = player_nr; // 1 or 2

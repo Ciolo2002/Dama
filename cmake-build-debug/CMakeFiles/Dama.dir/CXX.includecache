@@ -6,7 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/Users/omarceretta/CLionProjects/Dama/main.cpp
+/Users/omarceretta/CLionProjects/Dama/play.cpp
+player.hpp
+/Users/omarceretta/CLionProjects/Dama/player.hpp
 iostream
+-
+fstream
+-
+string
+-
+thread
+-
+
+/Users/omarceretta/CLionProjects/Dama/player.hpp
+iostream
+-
+fstream
+-
+string
+-
+sstream
+-
+stdlib.h
+-
+cassert
 -
 

@@ -11,7 +11,7 @@ using std::ifstream;
 using std::string;
 
 constexpr int MAX_ROUNDS = 1000;
-
+/*
 int main(int argc, char **argv){
 	
 	//create new verifier
@@ -66,3 +66,4 @@ int main(int argc, char **argv){
 	}
 	
 }
+*/

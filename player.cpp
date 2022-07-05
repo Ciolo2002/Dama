@@ -11,6 +11,8 @@ struct Player::Impl {
     };
     typedef Cell* Pcell;
     void destroy(Pcell pc);
+    Pcell copy(Pcell source) const;
+
 
     Pcell head;
 };
@@ -36,7 +38,6 @@ Player::~Player() {
     delete pimpl;
 }
 
-
 void Player::Impl::destroy(Pcell pc) {
     if (pc!=nullptr) {
         destroy(pc->next);
@@ -44,6 +45,28 @@ void Player::Impl::destroy(Pcell pc) {
     }
 }
 
+
+Player::Player(const Player& old){
+    pimpl->player_nr=old.pimpl->player_nr;
+    pimpl->destroy(pimpl->head);
+    pimpl->head=pimpl->copy(old.pimpl->head);
+
+}
+
+Player::Impl::Pcell Player::Impl::copy(Pcell source) const{
+    if (source == nullptr)
+        return nullptr;
+    else {
+        Pcell dest = new Cell;
+        for(int i=0;i<board_size;i++){
+            for(int j=0;j<board_size;j++){
+                dest->info[i][j] = source->info[i][j];
+            }
+        }
+        dest->next = copy(source->next);
+        return dest;
+    }
+}
 
 void Player::move() {
 

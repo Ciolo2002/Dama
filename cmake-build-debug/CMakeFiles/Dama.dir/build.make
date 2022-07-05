@@ -57,30 +57,60 @@ include CMakeFiles/Dama.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Dama.dir/flags.make
 
-CMakeFiles/Dama.dir/main.cpp.o: CMakeFiles/Dama.dir/flags.make
-CMakeFiles/Dama.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/omarceretta/CLionProjects/Dama/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Dama.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Dama.dir/main.cpp.o -c /Users/omarceretta/CLionProjects/Dama/main.cpp
+CMakeFiles/Dama.dir/play.cpp.o: CMakeFiles/Dama.dir/flags.make
+CMakeFiles/Dama.dir/play.cpp.o: ../play.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/omarceretta/CLionProjects/Dama/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Dama.dir/play.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Dama.dir/play.cpp.o -c /Users/omarceretta/CLionProjects/Dama/play.cpp
 
-CMakeFiles/Dama.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Dama.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/omarceretta/CLionProjects/Dama/main.cpp > CMakeFiles/Dama.dir/main.cpp.i
+CMakeFiles/Dama.dir/play.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Dama.dir/play.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/omarceretta/CLionProjects/Dama/play.cpp > CMakeFiles/Dama.dir/play.cpp.i
 
-CMakeFiles/Dama.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Dama.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/omarceretta/CLionProjects/Dama/main.cpp -o CMakeFiles/Dama.dir/main.cpp.s
+CMakeFiles/Dama.dir/play.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Dama.dir/play.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/omarceretta/CLionProjects/Dama/play.cpp -o CMakeFiles/Dama.dir/play.cpp.s
+
+CMakeFiles/Dama.dir/player.cpp.o: CMakeFiles/Dama.dir/flags.make
+CMakeFiles/Dama.dir/player.cpp.o: ../player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/omarceretta/CLionProjects/Dama/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Dama.dir/player.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Dama.dir/player.cpp.o -c /Users/omarceretta/CLionProjects/Dama/player.cpp
+
+CMakeFiles/Dama.dir/player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Dama.dir/player.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/omarceretta/CLionProjects/Dama/player.cpp > CMakeFiles/Dama.dir/player.cpp.i
+
+CMakeFiles/Dama.dir/player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Dama.dir/player.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/omarceretta/CLionProjects/Dama/player.cpp -o CMakeFiles/Dama.dir/player.cpp.s
+
+CMakeFiles/Dama.dir/verify.cpp.o: CMakeFiles/Dama.dir/flags.make
+CMakeFiles/Dama.dir/verify.cpp.o: ../verify.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/omarceretta/CLionProjects/Dama/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Dama.dir/verify.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Dama.dir/verify.cpp.o -c /Users/omarceretta/CLionProjects/Dama/verify.cpp
+
+CMakeFiles/Dama.dir/verify.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Dama.dir/verify.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/omarceretta/CLionProjects/Dama/verify.cpp > CMakeFiles/Dama.dir/verify.cpp.i
+
+CMakeFiles/Dama.dir/verify.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Dama.dir/verify.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/omarceretta/CLionProjects/Dama/verify.cpp -o CMakeFiles/Dama.dir/verify.cpp.s
 
 # Object files for target Dama
 Dama_OBJECTS = \
-"CMakeFiles/Dama.dir/main.cpp.o"
+"CMakeFiles/Dama.dir/play.cpp.o" \
+"CMakeFiles/Dama.dir/player.cpp.o" \
+"CMakeFiles/Dama.dir/verify.cpp.o"
 
 # External object files for target Dama
 Dama_EXTERNAL_OBJECTS =
 
-Dama: CMakeFiles/Dama.dir/main.cpp.o
+Dama: CMakeFiles/Dama.dir/play.cpp.o
+Dama: CMakeFiles/Dama.dir/player.cpp.o
+Dama: CMakeFiles/Dama.dir/verify.cpp.o
 Dama: CMakeFiles/Dama.dir/build.make
 Dama: CMakeFiles/Dama.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/omarceretta/CLionProjects/Dama/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Dama"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/omarceretta/CLionProjects/Dama/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Dama"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Dama.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
