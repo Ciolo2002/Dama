@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 #include <thread>
-
+/*
 using std::cout;
 using std::cin;
 using std::endl;
@@ -11,11 +11,11 @@ using std::ifstream;
 using std::string;
 
 constexpr int MAX_ROUNDS = 1000;
-/*
+
 int main(int argc, char **argv){
 	
 	//create new verifier
-	Player v();	
+	Player v();
 	
 	cout << "Running verifier" << endl;
 	

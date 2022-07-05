@@ -50,16 +50,15 @@ Player::Player(const Player& old){
     pimpl->player_nr=old.pimpl->player_nr;
     pimpl->destroy(pimpl->head);
     pimpl->head=pimpl->copy(old.pimpl->head);
-
 }
 
 Player::Impl::Pcell Player::Impl::copy(Pcell source) const{
     if (source == nullptr)
         return nullptr;
     else {
-        Pcell dest = new Cell;
-        for(int i=0;i<board_size;i++){
-            for(int j=0;j<board_size;j++){
+        auto dest = new Cell;
+        for (int i = 0; i < board_size; i++) {
+            for (int j = 0; j < board_size; j++) {
                 dest->info[i][j] = source->info[i][j];
             }
         }
@@ -67,6 +66,17 @@ Player::Impl::Pcell Player::Impl::copy(Pcell source) const{
         return dest;
     }
 }
+
+
+Player &Player::operator=(const Player &old) {
+    pimpl->player_nr = old.pimpl->player_nr;
+    pimpl->destroy(pimpl->head);
+    delete this;
+    pimpl->player_nr = old.pimpl->player_nr;
+    pimpl->head = pimpl->copy(old.pimpl->head);
+    return *this;
+}
+
 
 void Player::move() {
 
@@ -86,7 +96,7 @@ void Player::init_board(const string &filename) const {
 }
 
 bool Player::valid_move() const {
-
+    return false;
 }
 
 void Player::pop() {
