@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/omarceretta/CLionProjects/Dama/player.cpp
+player.hpp
+/Users/omarceretta/CLionProjects/Dama/player.hpp
+
 /Users/omarceretta/CLionProjects/Dama/player.hpp
 iostream
 -
@@ -18,17 +22,5 @@ sstream
 stdlib.h
 -
 cassert
--
-
-/Users/omarceretta/CLionProjects/Dama/verify.cpp
-player.hpp
-/Users/omarceretta/CLionProjects/Dama/player.hpp
-iostream
--
-fstream
--
-string
--
-thread
 -
 

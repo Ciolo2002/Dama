@@ -11,13 +11,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8429bcf7-35ba-43ae-a028-0f22c50869a4" name="Default Changelist" comment="operator =">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="8429bcf7-35ba-43ae-a028-0f22c50869a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/play.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/play.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/player.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Dama" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Dama" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/play.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/play.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/player.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verify.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/verify.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +81,8 @@
       <workItem from="1656971313596" duration="2654000" />
       <workItem from="1657049728536" duration="848000" />
       <workItem from="1657050620740" duration="187000" />
-      <workItem from="1657050837189" duration="6469000" />
+      <workItem from="1657050837189" duration="6662000" />
+      <workItem from="1657657727252" duration="11201000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1649890976293</created>
@@ -128,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657058784638</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="operator =">
+      <created>1657058915727</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657058915727</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +151,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -150,50 +164,54 @@
     <MESSAGE value="Costruttore + distruttore" />
     <MESSAGE value="costruttore + distruttore" />
     <MESSAGE value="copy constructor" />
-    <MESSAGE value="operator =" />
     <MESSAGE value="git ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="git ignore" />
+    <MESSAGE value="operator =" />
+    <option name="LAST_COMMIT_MESSAGE" value="operator =" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="309" y="2" key="CommitChangelistDialog2" timestamp="1657058784405">
+    <state x="309" y="2" key="CommitChangelistDialog2" timestamp="1657058915507">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="309" y="2" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1657058784405" />
+    <state x="309" y="2" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1657058915507" />
     <state x="309" y="27" key="CommitChangelistDialog2/0.25.1440.805@0.25.1440.805" timestamp="1649890975738" />
-    <state width="1398" height="204" key="GridCell.Tab.0.bottom" timestamp="1657058512503">
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1657669187406">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="204" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1657058512503" />
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1657669187406" />
     <state width="1398" height="205" key="GridCell.Tab.0.bottom/0.25.1440.806@0.25.1440.806" timestamp="1649889665401" />
-    <state width="1398" height="204" key="GridCell.Tab.0.bottom/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657003068600" />
-    <state width="1398" height="204" key="GridCell.Tab.0.center" timestamp="1657058512502">
+    <state width="1398" height="204" key="GridCell.Tab.0.bottom/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657089181253" />
+    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1657669187406">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="204" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1657058512502" />
+    <state width="1398" height="203" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1657669187406" />
     <state width="1398" height="205" key="GridCell.Tab.0.center/0.25.1440.806@0.25.1440.806" timestamp="1649889665400" />
-    <state width="1398" height="204" key="GridCell.Tab.0.center/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657003068599" />
-    <state width="1398" height="204" key="GridCell.Tab.0.left" timestamp="1657058512502">
+    <state width="1398" height="204" key="GridCell.Tab.0.center/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657089181252" />
+    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1657669187405">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="204" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1657058512502" />
+    <state width="1398" height="203" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1657669187405" />
     <state width="1398" height="205" key="GridCell.Tab.0.left/0.25.1440.806@0.25.1440.806" timestamp="1649889665400" />
-    <state width="1398" height="204" key="GridCell.Tab.0.left/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657003068598" />
-    <state width="1398" height="204" key="GridCell.Tab.0.right" timestamp="1657058512503">
+    <state width="1398" height="204" key="GridCell.Tab.0.left/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657089181251" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1657669187406">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="204" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1657058512503" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1657669187406" />
     <state width="1398" height="205" key="GridCell.Tab.0.right/0.25.1440.806@0.25.1440.806" timestamp="1649889665400" />
-    <state width="1398" height="204" key="GridCell.Tab.0.right/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657003068600" />
+    <state width="1398" height="204" key="GridCell.Tab.0.right/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657089181253" />
+    <state x="518" y="165" key="RollbackChangesDialog" timestamp="1657664784834">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="518" y="165" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1657664784834" />
     <state x="229" y="44" key="SettingsEditor" timestamp="1657055160691">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="44" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1657055160691" />
     <state x="229" y="64" key="SettingsEditor/0.25.1440.806@0.25.1440.806" timestamp="1649889795154" />
-    <state x="320" y="155" key="Vcs.Push.Dialog.v2" timestamp="1657057756730">
+    <state x="320" y="155" key="Vcs.Push.Dialog.v2" timestamp="1657058919199">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="155" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1657057756730" />
+    <state x="320" y="155" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1657058919199" />
     <state x="320" y="164" key="Vcs.Push.Dialog.v2/0.25.1440.805@0.25.1440.805" timestamp="1649890980655" />
     <state x="397" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1657049729362">
       <screen x="0" y="0" width="1440" height="900" />
@@ -201,13 +219,21 @@
     <state x="397" y="259" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1657049729362" />
     <state x="397" y="256" key="com.intellij.ide.util.TipDialog/0.25.1440.803@0.25.1440.803" timestamp="1656971318963" />
     <state x="397" y="257" key="com.intellij.ide.util.TipDialog/0.25.1440.806@0.25.1440.806" timestamp="1649890340399" />
+    <state x="378" y="69" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1657667705908">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="378" y="69" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1657667705908" />
     <state x="506" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1649890352626">
       <screen x="0" y="25" width="1440" height="806" />
     </state>
     <state x="506" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.806@0.25.1440.806" timestamp="1649890352626" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1657052696250">
+    <state x="383" y="85" width="674" height="729" key="find.popup" timestamp="1657665436995">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1657052696250" />
+    <state x="383" y="85" width="674" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1657665436995" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1657669136287">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1657669136287" />
   </component>
 </project>

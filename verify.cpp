@@ -19,7 +19,7 @@ int main(int argc, char **argv){
 	
 	cout << "Running verifier" << endl;
 	
-	string board_name =  "board_1.txt";		
+	string board_name =  "board_1.txt";
 	v.init_board(board_name);
 	v.load_board(board_name);
 	
