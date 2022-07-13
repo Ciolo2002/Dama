@@ -23,7 +23,7 @@ struct Player::Impl {
 
     void destroy(Pcell pc);
 
-    void prepend(const int (&board)[board_size][board_size]);
+    void prepend(const int(&board)[board_size][board_size]);
 
     Pcell copy(Pcell source) const;
 
@@ -103,7 +103,9 @@ Player::piece Player::operator()(int r, int c, int history_offset) const {
         throw player_exception{player_exception::index_out_of_bounds, "Non  valore di r e/o c non accettati"};
     }
     Player::Impl::Pcell tmp = pimpl->at(history_offset);
-    piece pezzo;
+    cout << tmp->info[r][c];
+
+    Player::piece pezzo;
     switch (tmp->info[r][c]) {
         case 0:
             pezzo = e;
@@ -151,48 +153,55 @@ void Player::load_board(const string &filename) {
     if (input.fail()) {
         throw player_exception{player_exception::missing_file, "nonexisting file: " + filename};
     }
-    if (filename.substr(filename.find_last_of(".") + 1) != "txt") {
+    if (filename.substr(filename.find_last_of('.') + 1) != "txt") {
         throw player_exception{player_exception::missing_file, "not a txt file file: " + filename};
     }
     int tmp_board[board_size][board_size];
     string line;
-    int i = 0;
+    int i = board_size;
     while (input) {
         istringstream line_str{line};
-        int j = 0;
         while (!line_str.eof()) {
             string s;
-            getline(line_str, s, ' ');
-
-            int pezzo = 0;
-            if (s == "x") {
-                pezzo = 1;
-            } else if (s == "X") {
-                pezzo = 2;
-            } else if (s == "o") {
-                pezzo = 3;
-            } else if (s == "O") {
-                pezzo = 4;
+            getline(line_str, s);
+            int j = 0;
+            int x = board_size - 1;
+            for (auto t: s) {
+                if (j % 2 == 0) {
+                    if (t == 'x') {
+                        tmp_board[i][x] = 1;
+                    } else if (t == 'X') {
+                        tmp_board[i][x] = 2;
+                    } else if (t == 'o') {
+                        tmp_board[i][x] = 3;
+                    } else if (t == 'O') {
+                        tmp_board[i][x] = 4;
+                    } else if (t == ' ') {
+                        tmp_board[i][x] = 0;
+                    } else {
+                        throw player_exception{player_exception::missing_file, "not a valid char " + filename};
+                    }
+                    x--;
+                }
+                j++;
             }
-            cout << s << pezzo; //FIXME bisogna capire come fare l explode della singola riga
-            tmp_board[i][j] = pezzo;
-            j++;
         }
-        i++;
+        i--;
         getline(input, line);
     }
-
     //TODO FARE I CHECK DI VALIDITà DELLA BOARD Se il file non esiste oppure se il formato del file è errato, oppure se la scacchiera caricata non è valida (esempio: troppe pedine, pedine su celle bianche, ecc …) lanciare una  player_exception con err_type uguale a missing_file oppure invalid_board  (a piacere. potete specificare meglio di che errore si tratta usando il campo msg che noi comunque non controlleremo). Attenzione: questa funzione non deve verificare la validità dell’ultima mossa! questa verifica è svolta da valid_move().
 
     pimpl->prepend(tmp_board);
 }
 
-void Player::Impl::prepend(const int (&board)[board_size][board_size]) {
+void Player::Impl::prepend(const int(&board)[board_size][board_size]) {
     Pcell newone = new Cell;
     for (int i = 0; i < board_size; i++) {
         for (int j = 0; j < board_size; j++) {
             newone->info[i][j] = board[i][j];
+            cout << newone->info[i][j] << " ";
         }
+        cout << endl;
     }
     newone->next = head;
     head = newone;
@@ -206,7 +215,6 @@ void Player::store_board(const string &filename, int history_offset) const {
 void Player::Impl::write_on_file(const int (&board)[board_size][board_size], const string &filename) const {
     ofstream out(filename, ofstream::binary);
     for (int i = 0; i < board_size; i++) {
-
         for (int j = 0; j < board_size; j++) {
             string s;
             switch (board[i][j]) {
@@ -227,14 +235,16 @@ void Player::Impl::write_on_file(const int (&board)[board_size][board_size], con
                     break;
                 default:
                     throw player_exception{player_exception::index_out_of_bounds,
-                                           "non può essitere un valore di questo tipo per la cella"};
+                                           "non può esisitere un valore di questo tipo per la cella"};
             }
             out << s;
             if (j < board_size - 1) {
                 out << " ";
             }
         }
-        out << '\n';
+        if (i < board_size - 1) {
+            out << '\n';
+        }
 
     }
     out.close();
