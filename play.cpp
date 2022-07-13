@@ -56,8 +56,12 @@ int main() {
     std::cout << "PLAYER 1: " << std::endl;
     std::cout << "CARICATA BOARD:" << i << std::endl;
     p1.load_board("board_1.txt");
+    p1.load_board("board_1.txt");
+    p1.load_board("board_1.txt");
 
-    cout << p1(0, 0, 0);
+    cout << p1(0, 0, 0) << ' ';
+    cout << p1(1, 0, 1) << ' ';
+    cout << p1(5, 3, 2) << ' ';
     /* while (i < 10) {
          try {
              std::cout << "PLAYER 1: " << std::endl;

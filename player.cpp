@@ -103,8 +103,6 @@ Player::piece Player::operator()(int r, int c, int history_offset) const {
         throw player_exception{player_exception::index_out_of_bounds, "Non  valore di r e/o c non accettati"};
     }
     Player::Impl::Pcell tmp = pimpl->at(history_offset);
-    cout << tmp->info[r][c];
-
     Player::piece pezzo;
     switch (tmp->info[r][c]) {
         case 0:
@@ -199,9 +197,7 @@ void Player::Impl::prepend(const int(&board)[board_size][board_size]) {
     for (int i = 0; i < board_size; i++) {
         for (int j = 0; j < board_size; j++) {
             newone->info[i][j] = board[i][j];
-            cout << newone->info[i][j] << " ";
         }
-        cout << endl;
     }
     newone->next = head;
     head = newone;
