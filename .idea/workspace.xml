@@ -17,8 +17,6 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/play.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/play.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/player.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Dama" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Dama" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/play.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/play.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/player.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +90,7 @@
       <workItem from="1657050620740" duration="187000" />
       <workItem from="1657050837189" duration="6662000" />
       <workItem from="1657657727252" duration="12190000" />
-      <workItem from="1657748625814" duration="6558000" />
+      <workItem from="1657748625814" duration="6831000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1649890976293</created>
@@ -164,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657754661546</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="test operator() success">
+      <created>1657755460967</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657755460967</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,37 +197,38 @@
     <MESSAGE value="operator =" />
     <MESSAGE value="scrittura in file da fare lettura in file e testare un po di funzioni" />
     <MESSAGE value="fix lettura da file + append nella lista" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix lettura da file + append nella lista" />
+    <MESSAGE value="test operator() success" />
+    <option name="LAST_COMMIT_MESSAGE" value="test operator() success" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="309" y="2" key="CommitChangelistDialog2" timestamp="1657754661252">
+    <state x="309" y="2" key="CommitChangelistDialog2" timestamp="1657755460710">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="309" y="2" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1657754661252" />
+    <state x="309" y="2" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1657755460710" />
     <state x="309" y="27" key="CommitChangelistDialog2/0.25.1440.805@0.25.1440.805" timestamp="1649890975738" />
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1657755381014">
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1657755860649">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1657755381014" />
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1657755860649" />
     <state width="1398" height="205" key="GridCell.Tab.0.bottom/0.25.1440.806@0.25.1440.806" timestamp="1649889665401" />
     <state width="1398" height="203" key="GridCell.Tab.0.bottom/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657694591764" />
-    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1657755381013">
+    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1657755860649">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1657755381013" />
+    <state width="1398" height="203" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1657755860649" />
     <state width="1398" height="205" key="GridCell.Tab.0.center/0.25.1440.806@0.25.1440.806" timestamp="1649889665400" />
     <state width="1398" height="203" key="GridCell.Tab.0.center/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657694591763" />
-    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1657755381013">
+    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1657755860649">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1657755381013" />
+    <state width="1398" height="203" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1657755860649" />
     <state width="1398" height="205" key="GridCell.Tab.0.left/0.25.1440.806@0.25.1440.806" timestamp="1649889665400" />
     <state width="1398" height="203" key="GridCell.Tab.0.left/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657694591762" />
-    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1657755381014">
+    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1657755860649">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1657755381014" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1657755860649" />
     <state width="1398" height="205" key="GridCell.Tab.0.right/0.25.1440.806@0.25.1440.806" timestamp="1649889665400" />
     <state width="1398" height="203" key="GridCell.Tab.0.right/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657694591763" />
     <state x="518" y="165" key="RollbackChangesDialog" timestamp="1657664784834">
@@ -234,10 +240,10 @@
     </state>
     <state x="229" y="44" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1657055160691" />
     <state x="229" y="64" key="SettingsEditor/0.25.1440.806@0.25.1440.806" timestamp="1649889795154" />
-    <state x="320" y="155" key="Vcs.Push.Dialog.v2" timestamp="1657754663107">
+    <state x="320" y="155" key="Vcs.Push.Dialog.v2" timestamp="1657755463526">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="155" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1657754663107" />
+    <state x="320" y="155" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1657755463526" />
     <state x="320" y="164" key="Vcs.Push.Dialog.v2/0.25.1440.805@0.25.1440.805" timestamp="1649890980655" />
     <state x="397" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1657748626650">
       <screen x="0" y="0" width="1440" height="900" />

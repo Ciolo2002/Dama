@@ -163,7 +163,7 @@ void Player::load_board(const string &filename) {
             string s;
             getline(line_str, s);
             int j = 0;
-            int x = board_size - 1;
+            int x = 0;
             for (auto t: s) {
                 if (j % 2 == 0) {
                     if (t == 'x') {
@@ -179,7 +179,7 @@ void Player::load_board(const string &filename) {
                     } else {
                         throw player_exception{player_exception::missing_file, "not a valid char " + filename};
                     }
-                    x--;
+                    x++;
                 }
                 j++;
             }
@@ -197,8 +197,11 @@ void Player::Impl::prepend(const int(&board)[board_size][board_size]) {
     for (int i = 0; i < board_size; i++) {
         for (int j = 0; j < board_size; j++) {
             newone->info[i][j] = board[i][j];
+            //  cout<<newone->info[i][j]<<' ';
         }
+        // cout<<endl;
     }
+    //cout<<endl; cout<<endl;
     newone->next = head;
     head = newone;
 }

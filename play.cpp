@@ -61,7 +61,7 @@ int main() {
 
     cout << p1(0, 0, 0) << ' ';
     cout << p1(1, 0, 1) << ' ';
-    cout << p1(5, 3, 2) << ' ';
+    cout << p1(7, 6, 2) << ' ';
     /* while (i < 10) {
          try {
              std::cout << "PLAYER 1: " << std::endl;
