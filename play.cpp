@@ -58,10 +58,16 @@ int main() {
     p1.load_board("board_1.txt");
     p1.load_board("board_1.txt");
     p1.load_board("board_1.txt");
+    p1.load_board("board_1.txt");
 
     cout << p1(0, 0, 0) << ' ';
     cout << p1(1, 0, 1) << ' ';
     cout << p1(7, 6, 2) << ' ';
+
+    p1.store_board("board_2.txt", 1);
+    p1.store_board("board_3.txt", 2);
+    p1.load_board("board_2.txt");
+
     /* while (i < 10) {
          try {
              std::cout << "PLAYER 1: " << std::endl;

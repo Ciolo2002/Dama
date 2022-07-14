@@ -2,7 +2,7 @@
 
 using namespace std;
 const int board_size = 8;
-
+const short max_pieces_cnt = 2 * (4 * 3);
 const int first_board[board_size][board_size] = {{3, 0, 3, 0, 3, 0, 3, 0},
                                                  {0, 3, 0, 3, 0, 3, 0, 3},
                                                  {3, 0, 3, 0, 3, 0, 3, 0},
@@ -147,7 +147,7 @@ Player::Impl::Pcell Player::Impl::at(int pos) {
 }
 
 void Player::load_board(const string &filename) {
-    ifstream input(filename, ios::binary);
+    ifstream input(filename, ios::in);
     if (input.fail()) {
         throw player_exception{player_exception::missing_file, "nonexisting file: " + filename};
     }
@@ -156,6 +156,7 @@ void Player::load_board(const string &filename) {
     }
     int tmp_board[board_size][board_size];
     string line;
+    short pieces_cnt = 0;
     int i = board_size;
     while (input) {
         istringstream line_str{line};
@@ -166,6 +167,7 @@ void Player::load_board(const string &filename) {
             int x = 0;
             for (auto t: s) {
                 if (j % 2 == 0) {
+                    pieces_cnt++;
                     if (t == 'x') {
                         tmp_board[i][x] = 1;
                     } else if (t == 'X') {
@@ -175,11 +177,15 @@ void Player::load_board(const string &filename) {
                     } else if (t == 'O') {
                         tmp_board[i][x] = 4;
                     } else if (t == ' ') {
+                        pieces_cnt--; //non avevo voglia di fare il ++ ovunque
                         tmp_board[i][x] = 0;
                     } else {
-                        throw player_exception{player_exception::missing_file, "not a valid char " + filename};
+                        throw player_exception{player_exception::invalid_board, "not a valid char " + filename};
                     }
                     x++;
+                } else if (t != ' ') {
+                    throw player_exception{player_exception::invalid_board,
+                                           "trying to insert a piece in a invalid cell"};
                 }
                 j++;
             }
@@ -187,8 +193,9 @@ void Player::load_board(const string &filename) {
         i--;
         getline(input, line);
     }
-    //TODO FARE I CHECK DI VALIDITà DELLA BOARD Se il file non esiste oppure se il formato del file è errato, oppure se la scacchiera caricata non è valida (esempio: troppe pedine, pedine su celle bianche, ecc …) lanciare una  player_exception con err_type uguale a missing_file oppure invalid_board  (a piacere. potete specificare meglio di che errore si tratta usando il campo msg che noi comunque non controlleremo). Attenzione: questa funzione non deve verificare la validità dell’ultima mossa! questa verifica è svolta da valid_move().
-
+    if (pieces_cnt > max_pieces_cnt) {
+        throw player_exception{player_exception::invalid_board, "trying to insert more pieces than allowed"};
+    }
     pimpl->prepend(tmp_board);
 }
 
@@ -197,22 +204,22 @@ void Player::Impl::prepend(const int(&board)[board_size][board_size]) {
     for (int i = 0; i < board_size; i++) {
         for (int j = 0; j < board_size; j++) {
             newone->info[i][j] = board[i][j];
-            //  cout<<newone->info[i][j]<<' ';
         }
-        // cout<<endl;
     }
-    //cout<<endl; cout<<endl;
     newone->next = head;
     head = newone;
 }
 
 void Player::store_board(const string &filename, int history_offset) const {
-
+    pimpl->write_on_file(pimpl->at(history_offset)->info, filename);
 }
 
 
 void Player::Impl::write_on_file(const int (&board)[board_size][board_size], const string &filename) const {
-    ofstream out(filename, ofstream::binary);
+    ofstream out(filename, ios::out);
+    if (filename.substr(filename.find_last_of('.') + 1) != "txt") {
+        throw player_exception{player_exception::missing_file, "not a txt file for output file: " + filename};
+    }
     for (int i = 0; i < board_size; i++) {
         for (int j = 0; j < board_size; j++) {
             string s;
@@ -234,7 +241,7 @@ void Player::Impl::write_on_file(const int (&board)[board_size][board_size], con
                     break;
                 default:
                     throw player_exception{player_exception::index_out_of_bounds,
-                                           "non può esisitere un valore di questo tipo per la cella"};
+                                           "invalid char for the board"};
             }
             out << s;
             if (j < board_size - 1) {
@@ -255,6 +262,8 @@ void Player::init_board(const string &filename) const {
 }
 
 bool Player::valid_move() const {
+
+
     return false;
 }
 
