@@ -52,40 +52,46 @@ int main() {
 
     Player p2(2);
     int i = 1;
+
+
     p1.init_board("board_1.txt");
-    std::cout << "PLAYER 1: " << std::endl;
-    std::cout << "CARICATA BOARD:" << i << std::endl;
-    p1.load_board("board_1.txt");
-    p1.load_board("board_1.txt");
-    p1.load_board("board_1.txt");
-    p1.load_board("board_1.txt");
+    /* std::cout << "PLAYER 1: " << std::endl;
+     std::cout << "CARICATA BOARD:" << i << std::endl;
+     p1.load_board("board_1.txt");
 
-    cout << p1(0, 0, 0) << ' ';
-    cout << p1(1, 0, 1) << ' ';
-    cout << p1(7, 6, 2) << ' ';
+     p1.move();
+     cout << p1(0, 0, 0) << ' ';
+     cout << p1(1, 0, 1) << ' ';
+     cout << p1(7, 6, 2) << ' ';
 
-    p1.store_board("board_2.txt", 1);
-    p1.store_board("board_3.txt", 2);
-    p1.load_board("board_2.txt");
+     p1.store_board("board_2.txt", 0);
+     p1.move();
+     p1.store_board("board_3.txt", 0);
+     p1.load_board("board_2.txt");
+     cout << endl;
+     cout << endl;
+     cout << endl; */
 
-    /* while (i < 10) {
-         try {
-             std::cout << "PLAYER 1: " << std::endl;
+
+
+    while (i < 10) {
+        try {
+            std::cout << "PLAYER 1: " << std::endl;
+            std::cout << "CARICATA BOARD:" << i << std::endl;
+            p1.load_board("board_" + std::to_string(i++) + ".txt");
+            p1.move();
+            std::cout << "SALVATA BOARD" << i << std::endl;
+            p1.store_board("board_" + std::to_string(i) + ".txt");
+            /* std::cout << "PLAYER 2:" << std::endl;
              std::cout << "CARICATA BOARD:" << i << std::endl;
-             p1.load_board("board_" + std::to_string(i++) + ".txt");
-             p1.move();
-             std::cout << "SALVATA BOARD" << i << std::endl;
-             p1.store_board("board_" + std::to_string(i) + ". txt");
-             std::cout << "PLAYER 2:" << std::endl;
-             std::cout << "CARICATA BOARD:" << i << std::endl;
-             p2.load_board("board_" + std::to_string(i++) + ". txt");
+             p2.load_board("board_" + std::to_string(i++) + ".txt");
              p2.move();
              std::cout << "SALVATA BOARD:" << i << std::endl;
-             p2.store_board("board " + std::to_string(i) + ".txt");
-         }
-         catch (player_exception e ) {
-             std::cerr << e.msg << std::endl;
-         }
-     } */
+             p2.store_board("board_" + std::to_string(i) + ".txt"); */
+        }
+        catch (player_exception e) {
+            std::cerr << e.msg << std::endl;
+        }
+    }
     return 0;
 }

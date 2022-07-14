@@ -3,22 +3,29 @@
 using namespace std;
 const int board_size = 8;
 const short max_pieces_cnt = 2 * (4 * 3);
-const int first_board[board_size][board_size] = {{3, 0, 3, 0, 3, 0, 3, 0},
-                                                 {0, 3, 0, 3, 0, 3, 0, 3},
-                                                 {3, 0, 3, 0, 3, 0, 3, 0},
-                                                 {0, 0, 0, 0, 0, 0, 0, 0},
-                                                 {0, 0, 0, 0, 0, 0, 0, 0},
-                                                 {0, 1, 0, 1, 0, 1, 0, 1},
-                                                 {1, 0, 1, 0, 1, 0, 1, 0},
-                                                 {0, 1, 0, 1, 0, 1, 0, 1}};
+const int first_board[board_size][board_size] = {
+        {0, 4, 0, 4, 0, 4, 0, 4},
+        {4, 0, 4, 0, 4, 0, 4, 0},
+        {0, 4, 0, 4, 0, 4, 0, 4},
+        {4, 4, 4, 4, 4, 4, 4, 4},
+        {4, 4, 4, 4, 4, 4, 4, 4},
+        {4, 1, 4, 1, 4, 1, 4, 1},
+        {1, 4, 1, 4, 1, 4, 1, 4},
+        {4, 1, 4, 1, 4, 1, 4, 1},
+};
 
 
 struct Player::Impl {
     int player_nr;
+
     struct Cell {
         int info[board_size][board_size];
         Cell *next;
+
     };
+
+    void print_board(const int(&board)[board_size][board_size]) const;
+
     typedef Cell *Pcell;
 
     void destroy(Pcell pc);
@@ -28,6 +35,7 @@ struct Player::Impl {
     Pcell copy(Pcell source) const;
 
     Pcell at(int pos);
+
 
     void write_on_file(const int(&board)[board_size][board_size], const string &filename) const;
 
@@ -67,9 +75,13 @@ void Player::Impl::destroy(Pcell pc) {
 
 
 Player::Player(const Player &old) {
+    this->pimpl = new Impl;
     pimpl->player_nr = old.pimpl->player_nr;
+
     pimpl->destroy(pimpl->head);
+
     pimpl->head = pimpl->copy(old.pimpl->head);
+
 }
 
 Player::Impl::Pcell Player::Impl::copy(Pcell source) const {
@@ -88,8 +100,48 @@ Player::Impl::Pcell Player::Impl::copy(Pcell source) const {
 }
 
 
+void Player::Impl::print_board(const int(&board)[board_size][board_size]) const {
+    cout << "  j: ";
+    for (int i = 0; i < board_size; ++i) {
+        cout << i << ' ';
+    }
+    cout << endl;
+    for (int i = board_size - 1; i >= 0; --i) {
+        cout << "i: " << i << ' ';
+        for (int j = board_size - 1; j >= 0; --j) {
+            char pezzo;
+
+            switch (board[i][j]) {
+                case 0:
+                    pezzo = 'x';
+                    break;
+                case 1:
+                    pezzo = 'o';
+                    break;
+                case 2:
+                    pezzo = 'X';
+                    break;
+                case 3:
+                    pezzo = 'O';
+                    break;
+                case 4:
+                    pezzo = ' ';
+                    break;
+            }
+            cout << pezzo << ' ';
+        }
+        cout << endl;
+    }
+    cout << "  j: ";
+    for (int i = 0; i < board_size; ++i) {
+        cout << i << ' ';
+    }
+};
+
 Player &Player::operator=(const Player &old) {
+    this->pimpl = new Impl;
     pimpl->player_nr = old.pimpl->player_nr;
+
     pimpl->destroy(pimpl->head);
     delete this;
     pimpl->player_nr = old.pimpl->player_nr;
@@ -106,19 +158,19 @@ Player::piece Player::operator()(int r, int c, int history_offset) const {
     Player::piece pezzo;
     switch (tmp->info[r][c]) {
         case 0:
-            pezzo = e;
+            pezzo = x;
             break;
         case 1:
-            pezzo = x;
+            pezzo = o;
             break;
         case 2:
             pezzo = X;
             break;
         case 3:
-            pezzo = o;
+            pezzo = O;
             break;
         case 4:
-            pezzo = O;
+            pezzo = e;
             break;
         default:
             throw player_exception{player_exception::index_out_of_bounds, "tipo del pezzo non valido"};
@@ -129,7 +181,40 @@ Player::piece Player::operator()(int r, int c, int history_offset) const {
 
 
 void Player::move() {
+    Player copy = *this;
+    int new_table[board_size][board_size] = {};
+    for (int i = 0; i < board_size; i++) {
+        for (int j = 0; j < board_size; j++) {
+            new_table[i][j] = copy(i, j, 0);
+        }
+    }
+    copy.pimpl->print_board(new_table);
+    bool done = false;
+    if (pimpl->player_nr == 1) {
+        for (int i = 0; i < board_size && !done; ++i) {
+            for (int j = 0; j < board_size && !done; ++j) {
+                if (new_table[i][j] == 0) {
+                    if (i + 1 < board_size && j + 1 < board_size && new_table[i + 1][j + 1] == 4) {
+                        new_table[i + 1][j + 1] = 0;
+                        new_table[i][j] = 4;
+                        done = true;
+                    }/* else if (i - 1 >= 0 && j + 1 > board_size && new_table[i - 1][j + 1] == 4) {
+                        new_table[i - 1][j + 1] = 0;
+                        new_table[i][j] = 4;
+                        done = true;
+                    } */
+                }
+            }
+        }
+    } else if (pimpl->player_nr == 2) {
 
+    } else {
+        throw player_exception{player_exception::index_out_of_bounds, "Il numero del player deve essere 1 o 2"};
+
+    }
+
+
+    pimpl->prepend(new_table);
 }
 
 
@@ -147,9 +232,10 @@ Player::Impl::Pcell Player::Impl::at(int pos) {
 }
 
 void Player::load_board(const string &filename) {
-    ifstream input(filename, ios::in);
+    ifstream input(filename, fstream::in);
     if (input.fail()) {
-        throw player_exception{player_exception::missing_file, "nonexisting file: " + filename};
+        throw player_exception{player_exception::missing_file,
+                               "not existing file: " + filename + ' ' + strerror(errno)};
     }
     if (filename.substr(filename.find_last_of('.') + 1) != "txt") {
         throw player_exception{player_exception::missing_file, "not a txt file file: " + filename};
@@ -163,31 +249,31 @@ void Player::load_board(const string &filename) {
         while (!line_str.eof()) {
             string s;
             getline(line_str, s);
-            int j = 0;
-            int x = 0;
+            int j = (board_size - 1) * 2;
+            int x = board_size - 1;
             for (auto t: s) {
                 if (j % 2 == 0) {
                     pieces_cnt++;
                     if (t == 'x') {
-                        tmp_board[i][x] = 1;
+                        tmp_board[i][x] = 0;
                     } else if (t == 'X') {
                         tmp_board[i][x] = 2;
                     } else if (t == 'o') {
-                        tmp_board[i][x] = 3;
+                        tmp_board[i][x] = 1;
                     } else if (t == 'O') {
-                        tmp_board[i][x] = 4;
+                        tmp_board[i][x] = 3;
                     } else if (t == ' ') {
                         pieces_cnt--; //non avevo voglia di fare il ++ ovunque
-                        tmp_board[i][x] = 0;
+                        tmp_board[i][x] = 4;
                     } else {
                         throw player_exception{player_exception::invalid_board, "not a valid char " + filename};
                     }
-                    x++;
+                    x--;
                 } else if (t != ' ') {
                     throw player_exception{player_exception::invalid_board,
                                            "trying to insert a piece in a invalid cell"};
                 }
-                j++;
+                j--;
             }
         }
         i--;
@@ -220,35 +306,35 @@ void Player::Impl::write_on_file(const int (&board)[board_size][board_size], con
     if (filename.substr(filename.find_last_of('.') + 1) != "txt") {
         throw player_exception{player_exception::missing_file, "not a txt file for output file: " + filename};
     }
-    for (int i = 0; i < board_size; i++) {
-        for (int j = 0; j < board_size; j++) {
+    for (int i = board_size - 1; i >= 0; i--) {
+        for (int j = board_size - 1; j >= 0; j--) {
             string s;
             switch (board[i][j]) {
                 case 0:
-                    s = " ";
+                    s = "x";
                     break;
                 case 1:
-                    s = "x";
+                    s = "o";
                     break;
                 case 2:
                     s = "X";
                     break;
                 case 3:
-                    s = "o";
+                    s = "O";
                     break;
                 case 4:
-                    s = "O";
+                    s = " ";
                     break;
                 default:
                     throw player_exception{player_exception::index_out_of_bounds,
                                            "invalid char for the board"};
             }
             out << s;
-            if (j < board_size - 1) {
+            if (j > 0) {
                 out << " ";
             }
         }
-        if (i < board_size - 1) {
+        if (i > 0) {
             out << '\n';
         }
 
