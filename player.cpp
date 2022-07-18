@@ -102,7 +102,7 @@ Player::Impl::Pcell Player::Impl::copy(Pcell source) const {
 
 void Player::Impl::print_board(const int(&board)[board_size][board_size]) const {
     cout << "  j: ";
-    for (int i = 0; i < board_size; ++i) {
+    for (int i = board_size - 1; i >= 0; --i) {
         cout << i << ' ';
     }
     cout << endl;
@@ -133,7 +133,7 @@ void Player::Impl::print_board(const int(&board)[board_size][board_size]) const 
         cout << endl;
     }
     cout << "  j: ";
-    for (int i = 0; i < board_size; ++i) {
+    for (int i = board_size - 1; i >= 0; --i) {
         cout << i << ' ';
     }
 };
@@ -181,39 +181,171 @@ Player::piece Player::operator()(int r, int c, int history_offset) const {
 
 
 void Player::move() {
-    Player copy = *this;
+
+
     int new_table[board_size][board_size] = {};
     for (int i = 0; i < board_size; i++) {
         for (int j = 0; j < board_size; j++) {
-            new_table[i][j] = copy(i, j, 0);
+            new_table[i][j] = this->pimpl->head->info[i][j];
         }
     }
-    copy.pimpl->print_board(new_table);
+    pimpl->print_board(new_table);
     bool done = false;
     if (pimpl->player_nr == 1) {
         for (int i = 0; i < board_size && !done; ++i) {
             for (int j = 0; j < board_size && !done; ++j) {
-                if (new_table[i][j] == 0) {
-                    if (i + 1 < board_size && j + 1 < board_size && new_table[i + 1][j + 1] == 4) {
+                if (new_table[i][j] == 2) {
+                    if (i + 2 < board_size && j + 2 < board_size && new_table[i + 2][j + 2] == 4 &&
+                        (new_table[i + 1][j + 1] == 1 || new_table[i + 1][j + 1] == 3)) {
+                        new_table[i + 2][j + 2] = 2;
+                        new_table[i][j] = 4;
+                        new_table[i + 1][j + 1] = 4;
+                        done = true;
+                    } else if (i + 2 < board_size && j - 2 >= 0 && new_table[i + 2][j - 2] == 4 &&
+                               (new_table[i + 1][j - 1] == 1 || new_table[i + 1][j + 1] == 3)) {
+                        new_table[i + 2][j - 2] = 2;
+                        new_table[i][j] = 4;
+                        new_table[i + 1][j - 1] = 4;
+                        done = true;
+                    } else if (i - 2 >= 0 && j - 2 >= 0 && new_table[i - 2][j - 2] == 4 &&
+                               (new_table[i - 1][j - 1] == 1 || new_table[i - 1][j + 1] == 3)) {
+                        new_table[i - 2][j - 2] = 2;
+                        new_table[i][j] = 4;
+                        new_table[i - 1][j - 1] = 4;
+                        done = true;
+                    } else if (i - 2 >= 0 && j + 2 < board_size && new_table[i - 2][j + 2] == 4 &&
+                               (new_table[i - 1][j + 1] == 1 || new_table[i - 1][j + 1] == 3)) {
+                        new_table[i - 2][j + 2] = 2;
+                        new_table[i][j] = 4;
+                        new_table[i - 1][j + 1] = 4;
+                        done = true;
+                    } else if (i - 1 >= 0 && j - 1 >= 0 && new_table[i - 1][j - 1] == 4) {
+                        new_table[i - 1][j - 1] = 2;
+                        new_table[i][j] = 4;
+                        done = true;
+                    } else if (i - 1 >= 0 && j + 1 < board_size && new_table[i - 1][j + 1] == 4) {
+                        new_table[i - 1][j + 1] = 2;
+                        new_table[i][j] = 4;
+                        done = true;
+                    } else if (i + 1 < board_size && j + 1 < board_size && new_table[i + 1][j + 1] == 4) {
+                        new_table[i + 1][j + 1] = 2;
+                        new_table[i][j] = 4;
+                        done = true;
+                    } else if (i + 1 < board_size && j - 1 >= 0 && new_table[i + 1][j - 1] == 4) {
+                        new_table[i + 1][j - 1] = 2;
+                        new_table[i][j] = 4;
+                        done = true;
+                    }
+
+                } else if (new_table[i][j] == 0) {
+
+                    if (i + 2 < board_size && j + 2 < board_size && new_table[i + 2][j + 2] == 4 &&
+                        new_table[i + 1][j + 1] == 1) {
+                        new_table[i + 2][j + 2] = 0;
+                        new_table[i][j] = 4;
+                        new_table[i + 1][j + 1] = 4;
+                        done = true;
+                    } else if (i + 2 < board_size && j - 2 >= 0 && new_table[i + 2][j - 2] == 4 &&
+                               new_table[i + 1][j - 1] == 1) {
+                        new_table[i + 2][j - 2] = 0;
+                        new_table[i][j] = 4;
+                        new_table[i + 1][j - 1] = 4;
+                        done = true;
+                    } else if (i + 1 < board_size && j + 1 < board_size && new_table[i + 1][j + 1] == 4) {
                         new_table[i + 1][j + 1] = 0;
                         new_table[i][j] = 4;
                         done = true;
-                    }/* else if (i - 1 >= 0 && j + 1 > board_size && new_table[i - 1][j + 1] == 4) {
-                        new_table[i - 1][j + 1] = 0;
+                    } else if (i + 1 < board_size && j - 1 >= 0 && new_table[i + 1][j - 1] == 4) {
+                        new_table[i + 1][j - 1] = 0;
                         new_table[i][j] = 4;
                         done = true;
-                    } */
+                    }
                 }
             }
         }
     } else if (pimpl->player_nr == 2) {
+        for (int i = board_size - 1; i >= 0 && !done; --i) {
+            for (int j = board_size - 1; j >= 0 && !done; --j) {
+                if (new_table[i][j] == 3) {
+                    if (i - 2 >= 0 && j - 2 >= 0 && new_table[i - 2][j - 2] == 4 &&
+                        (new_table[i - 1][j - 1] == 0 || new_table[i - 1][j - 1] == 2)) {
+                        new_table[i - 2][j - 2] = 3;
+                        new_table[i][j] = 4;
+                        new_table[i - 1][j - 1] = 4;
+                        done = true;
+                    } else if (i - 2 >= 0 && j + 2 < board_size && new_table[i - 2][j + 2] == 4 &&
+                               (new_table[i - 1][j + 1] == 0 || new_table[i - 1][j + 1] == 2)) {
+                        new_table[i - 2][j + 2] = 3;
+                        new_table[i][j] = 4;
+                        new_table[i - 1][j + 1] = 4;
+                        done = true;
+                    } else if (i + 2 < board_size && j + 2 < board_size && new_table[i + 2][j + 2] == 4 &&
+                               (new_table[i + 1][j + 1] == 0 || new_table[i + 1][j + 1] == 2)) {
+                        new_table[i + 2][j + 2] = 3;
+                        new_table[i][j] = 4;
+                        new_table[i + 1][j + 1] = 4;
+                        done = true;
+                    } else if (i + 2 > board_size && j - 2 >= 0 && new_table[i + 2][j - 2] == 4 &&
+                               (new_table[i + 1][j - 1] == 0 || new_table[i + 1][j - 1] == 2)) {
+                        new_table[i + 2][j - 2] = 3;
+                        new_table[i][j] = 4;
+                        new_table[i + 1][j + 1] = 4;
+                        done = true;
+                    } else if (i - 1 >= 0 && j - 1 >= 0 && new_table[i - 1][j - 1] == 4) {
+                        new_table[i - 1][j - 1] = 3;
+                        new_table[i][j] = 4;
+                        done = true;
+                    } else if (i - 1 >= 0 && j + 1 < board_size && new_table[i - 1][j + 1] == 4) {
+                        new_table[i - 1][j + 1] = 3;
+                        new_table[i][j] = 4;
+                        done = true;
+                    } else if (i + 1 < board_size && j + 1 < board_size && new_table[i + 1][j + 1] == 4) {
+                        new_table[i + 1][j + 1] = 3;
+                        new_table[i][j] = 4;
+                        done = true;
+                    } else if (i + 1 < board_size && j - 1 >= 0 && new_table[i + 1][j - 1] == 4) {
+                        new_table[i + 1][j - 1] = 3;
+                        new_table[i][j] = 4;
+                        done = true;
+                    }
 
+                }
+                if (new_table[i][j] == 1) {
+                    if (i - 2 >= 0 && j - 2 >= 0 && new_table[i - 2][j - 2] == 4 && new_table[i - 1][j - 1] == 0) {
+                        new_table[i - 2][j - 2] = 1;
+                        new_table[i][j] = 4;
+                        new_table[i - 1][j - 1] = 4;
+                        done = true;
+                    } else if (i - 2 >= 0 && j + 2 < board_size && new_table[i - 2][j + 2] == 4 &&
+                               new_table[i - 1][j + 1] == 0) {
+                        new_table[i - 2][j + 2] = 1;
+                        new_table[i][j] = 4;
+                        new_table[i - 1][j + 1] = 4;
+                        done = true;
+                    } else if (i - 1 >= 0 && j - 1 >= 0 && new_table[i - 1][j - 1] == 4) {
+                        new_table[i - 1][j - 1] = 1;
+                        new_table[i][j] = 4;
+                        done = true;
+                    } else if (i - 1 >= 0 && j + 1 < board_size && new_table[i - 1][j + 1] == 4) {
+                        new_table[i - 1][j + 1] = 1;
+                        new_table[i][j] = 4;
+                        done = true;
+                    }
+                }
+            }
+        }
     } else {
         throw player_exception{player_exception::index_out_of_bounds, "Il numero del player deve essere 1 o 2"};
-
     }
 
-
+    for (int j = 0; j < board_size; j++) {
+        if (new_table[board_size - 1][j] == 0) {
+            new_table[board_size - 1][j] = 2;
+        }
+        if (new_table[0][j] == 1) {
+            new_table[0][j] = 3;
+        }
+    }
     pimpl->prepend(new_table);
 }
 
