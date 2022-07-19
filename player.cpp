@@ -189,7 +189,7 @@ void Player::move() {
             new_table[i][j] = this->pimpl->head->info[i][j];
         }
     }
-    pimpl->print_board(new_table);
+
     bool done = false;
     int maxtutto = 70000;
 
@@ -555,7 +555,50 @@ void Player::init_board(const string &filename) const {
 bool Player::valid_move() const {
 
 
-    return false;
+    int difference_counter = 0;
+
+    int differences[3][2] = {-7}; //mi piace il 7
+
+    for (int i = 0; i < board_size; ++i) {
+        for (int j = 0; j < board_size; ++j) {
+            if (this->operator()(i, j, 0) != this->operator()(i, j, 1)) {
+                difference_counter++;
+                if (difference_counter > 3) {
+                    return false;
+                }
+                differences[difference_counter - 1][0] = i;
+                differences[difference_counter - 1][1] = j;
+            }
+        }
+    }
+
+    if (difference_counter <= 1) {
+        return false;
+    }
+
+    if (difference_counter == 2) {
+        if (abs(differences[0][0] - differences[1][0]) != 1 || abs(differences[0][1] - differences[1][1]) != 1) {
+            return false;
+        }
+    } else if (difference_counter == 3) {
+        if (abs(differences[0][0] - differences[2][0]) != 2 || abs(differences[0][1] - differences[2][1]) != 2) {
+            return false;
+        } else if (this->operator()(differences[1][0], differences[1][1], 0) != 4) {
+            return false;
+        }
+    }
+
+
+    for (int j = 0; j < board_size; j++) { //controllo che siano stati promossi a dama
+        if (this->operator()((board_size - 1), j, 1) == 0 && this->operator()((board_size - 1), j, 0) != 2) {
+            return false;
+        }
+        if (this->operator()(0, j, 1) == 1 && this->operator()(0, j, 0) != 3) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void Player::pop() {
