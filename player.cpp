@@ -191,75 +191,101 @@ void Player::move() {
     }
     pimpl->print_board(new_table);
     bool done = false;
+    int attempts = rand() % 10000000;
+    int disperazione = -attempts;
     if (pimpl->player_nr == 1) {
         for (int i = 0; i < board_size && !done; ++i) {
             for (int j = 0; j < board_size && !done; ++j) {
                 if (new_table[i][j] == 2) {
-                    if (i + 2 < board_size && j + 2 < board_size && new_table[i + 2][j + 2] == 4 &&
-                        (new_table[i + 1][j + 1] == 1 || new_table[i + 1][j + 1] == 3)) {
-                        new_table[i + 2][j + 2] = 2;
-                        new_table[i][j] = 4;
-                        new_table[i + 1][j + 1] = 4;
-                        done = true;
-                    } else if (i + 2 < board_size && j - 2 >= 0 && new_table[i + 2][j - 2] == 4 &&
-                               (new_table[i + 1][j - 1] == 1 || new_table[i + 1][j + 1] == 3)) {
-                        new_table[i + 2][j - 2] = 2;
-                        new_table[i][j] = 4;
-                        new_table[i + 1][j - 1] = 4;
-                        done = true;
-                    } else if (i - 2 >= 0 && j - 2 >= 0 && new_table[i - 2][j - 2] == 4 &&
-                               (new_table[i - 1][j - 1] == 1 || new_table[i - 1][j + 1] == 3)) {
-                        new_table[i - 2][j - 2] = 2;
-                        new_table[i][j] = 4;
-                        new_table[i - 1][j - 1] = 4;
-                        done = true;
-                    } else if (i - 2 >= 0 && j + 2 < board_size && new_table[i - 2][j + 2] == 4 &&
-                               (new_table[i - 1][j + 1] == 1 || new_table[i - 1][j + 1] == 3)) {
-                        new_table[i - 2][j + 2] = 2;
-                        new_table[i][j] = 4;
-                        new_table[i - 1][j + 1] = 4;
-                        done = true;
-                    } else if (i - 1 >= 0 && j - 1 >= 0 && new_table[i - 1][j - 1] == 4) {
-                        new_table[i - 1][j - 1] = 2;
-                        new_table[i][j] = 4;
-                        done = true;
-                    } else if (i - 1 >= 0 && j + 1 < board_size && new_table[i - 1][j + 1] == 4) {
-                        new_table[i - 1][j + 1] = 2;
-                        new_table[i][j] = 4;
-                        done = true;
-                    } else if (i + 1 < board_size && j + 1 < board_size && new_table[i + 1][j + 1] == 4) {
-                        new_table[i + 1][j + 1] = 2;
-                        new_table[i][j] = 4;
-                        done = true;
-                    } else if (i + 1 < board_size && j - 1 >= 0 && new_table[i + 1][j - 1] == 4) {
-                        new_table[i + 1][j - 1] = 2;
-                        new_table[i][j] = 4;
-                        done = true;
-                    }
+                    do {
+                        int myrand = rand() % 20;
+                        if (i + 2 < board_size && j + 2 < board_size &&
+                            new_table[i + 2][j + 2] == 4 &&
+                            (new_table[i + 1][j + 1] == 1 || new_table[i + 1][j + 1] == 3)) {
+                            new_table[i + 2][j + 2] = 2;
+                            new_table[i][j] = 4;
+                            new_table[i + 1][j + 1] = 4;
+                            done = true;
+                        } else if (i + 2 < board_size && j - 2 >= 0 &&
+                                   new_table[i + 2][j - 2] == 4 &&
+                                   (new_table[i + 1][j - 1] == 1 || new_table[i + 1][j + 1] == 3)) {
+                            new_table[i + 2][j - 2] = 2;
+                            new_table[i][j] = 4;
+                            new_table[i + 1][j - 1] = 4;
+                            done = true;
+                        } else if (i - 2 >= 0 && j - 2 >= 0 &&
+                                   new_table[i - 2][j - 2] == 4 &&
+                                   (new_table[i - 1][j - 1] == 1 || new_table[i - 1][j + 1] == 3)) {
+                            new_table[i - 2][j - 2] = 2;
+                            new_table[i][j] = 4;
+                            new_table[i - 1][j - 1] = 4;
+                            done = true;
+                        } else if (((myrand == 3 && attempts <= 0) || attempts <= disperazione) && i - 2 >= 0 &&
+                                   j + 2 < board_size &&
+                                   new_table[i - 2][j + 2] == 4 &&
+                                   (new_table[i - 1][j + 1] == 1 || new_table[i - 1][j + 1] == 3)) {
+                            new_table[i - 2][j + 2] = 2;
+                            new_table[i][j] = 4;
+                            new_table[i - 1][j + 1] = 4;
+                            done = true;
+                        } else if (((myrand == 4 && attempts <= 0) || attempts <= disperazione) && i - 1 >= 0 &&
+                                   j - 1 >= 0 &&
+                                   new_table[i - 1][j - 1] == 4) {
+                            new_table[i - 1][j - 1] = 2;
+                            new_table[i][j] = 4;
+                            done = true;
+                        } else if (((myrand == 5 && attempts <= 0) || attempts <= disperazione) && i - 1 >= 0 &&
+                                   j + 1 < board_size &&
+                                   new_table[i - 1][j + 1] == 4) {
+                            new_table[i - 1][j + 1] = 2;
+                            new_table[i][j] = 4;
+                            done = true;
+                        } else if (((myrand == 6 && attempts <= 0) || attempts <= disperazione) && i + 1 < board_size &&
+                                   j + 1 < board_size &&
+                                   new_table[i + 1][j + 1] == 4) {
+                            new_table[i + 1][j + 1] = 2;
+                            new_table[i][j] = 4;
+                            done = true;
+                        } else if (((myrand == 7 && attempts <= 0) || attempts <= disperazione) && i + 1 < board_size &&
+                                   j - 1 >= 0 &&
+                                   new_table[i + 1][j - 1] == 4) {
+                            new_table[i + 1][j - 1] = 2;
+                            new_table[i][j] = 4;
+                            done = true;
+                        }
+                    } while (!done && ((attempts--) >= disperazione));
 
                 } else if (new_table[i][j] == 0) {
-
-                    if (i + 2 < board_size && j + 2 < board_size && new_table[i + 2][j + 2] == 4 &&
-                        new_table[i + 1][j + 1] == 1) {
-                        new_table[i + 2][j + 2] = 0;
-                        new_table[i][j] = 4;
-                        new_table[i + 1][j + 1] = 4;
-                        done = true;
-                    } else if (i + 2 < board_size && j - 2 >= 0 && new_table[i + 2][j - 2] == 4 &&
-                               new_table[i + 1][j - 1] == 1) {
-                        new_table[i + 2][j - 2] = 0;
-                        new_table[i][j] = 4;
-                        new_table[i + 1][j - 1] = 4;
-                        done = true;
-                    } else if (i + 1 < board_size && j + 1 < board_size && new_table[i + 1][j + 1] == 4) {
-                        new_table[i + 1][j + 1] = 0;
-                        new_table[i][j] = 4;
-                        done = true;
-                    } else if (i + 1 < board_size && j - 1 >= 0 && new_table[i + 1][j - 1] == 4) {
-                        new_table[i + 1][j - 1] = 0;
-                        new_table[i][j] = 4;
-                        done = true;
-                    }
+                    do {
+                        int myrand = rand() % 20;
+                        if (i + 2 < board_size && j + 2 < board_size &&
+                            new_table[i + 2][j + 2] == 4 &&
+                            new_table[i + 1][j + 1] == 1) {
+                            new_table[i + 2][j + 2] = 0;
+                            new_table[i][j] = 4;
+                            new_table[i + 1][j + 1] = 4;
+                            done = true;
+                        } else if (i + 2 < board_size && j - 2 >= 0 &&
+                                   new_table[i + 2][j - 2] == 4 &&
+                                   new_table[i + 1][j - 1] == 1) {
+                            new_table[i + 2][j - 2] = 0;
+                            new_table[i][j] = 4;
+                            new_table[i + 1][j - 1] = 4;
+                            done = true;
+                        } else if (((myrand == 3 && attempts <= 0) || attempts <= disperazione) && i + 1 < board_size &&
+                                   j + 1 < board_size &&
+                                   new_table[i + 1][j + 1] == 4) {
+                            new_table[i + 1][j + 1] = 0;
+                            new_table[i][j] = 4;
+                            done = true;
+                        } else if (((myrand == 2 && attempts <= 0) || attempts <= disperazione) && i + 1 < board_size &&
+                                   j - 1 >= 0 &&
+                                   new_table[i + 1][j - 1] == 4) {
+                            new_table[i + 1][j - 1] = 0;
+                            new_table[i][j] = 4;
+                            done = true;
+                        }
+                    } while (!done && ((attempts--) >= disperazione));
                 }
             }
         }
@@ -267,70 +293,95 @@ void Player::move() {
         for (int i = board_size - 1; i >= 0 && !done; --i) {
             for (int j = board_size - 1; j >= 0 && !done; --j) {
                 if (new_table[i][j] == 3) {
-                    if (i - 2 >= 0 && j - 2 >= 0 && new_table[i - 2][j - 2] == 4 &&
-                        (new_table[i - 1][j - 1] == 0 || new_table[i - 1][j - 1] == 2)) {
-                        new_table[i - 2][j - 2] = 3;
-                        new_table[i][j] = 4;
-                        new_table[i - 1][j - 1] = 4;
-                        done = true;
-                    } else if (i - 2 >= 0 && j + 2 < board_size && new_table[i - 2][j + 2] == 4 &&
-                               (new_table[i - 1][j + 1] == 0 || new_table[i - 1][j + 1] == 2)) {
-                        new_table[i - 2][j + 2] = 3;
-                        new_table[i][j] = 4;
-                        new_table[i - 1][j + 1] = 4;
-                        done = true;
-                    } else if (i + 2 < board_size && j + 2 < board_size && new_table[i + 2][j + 2] == 4 &&
-                               (new_table[i + 1][j + 1] == 0 || new_table[i + 1][j + 1] == 2)) {
-                        new_table[i + 2][j + 2] = 3;
-                        new_table[i][j] = 4;
-                        new_table[i + 1][j + 1] = 4;
-                        done = true;
-                    } else if (i + 2 > board_size && j - 2 >= 0 && new_table[i + 2][j - 2] == 4 &&
-                               (new_table[i + 1][j - 1] == 0 || new_table[i + 1][j - 1] == 2)) {
-                        new_table[i + 2][j - 2] = 3;
-                        new_table[i][j] = 4;
-                        new_table[i + 1][j + 1] = 4;
-                        done = true;
-                    } else if (i - 1 >= 0 && j - 1 >= 0 && new_table[i - 1][j - 1] == 4) {
-                        new_table[i - 1][j - 1] = 3;
-                        new_table[i][j] = 4;
-                        done = true;
-                    } else if (i - 1 >= 0 && j + 1 < board_size && new_table[i - 1][j + 1] == 4) {
-                        new_table[i - 1][j + 1] = 3;
-                        new_table[i][j] = 4;
-                        done = true;
-                    } else if (i + 1 < board_size && j + 1 < board_size && new_table[i + 1][j + 1] == 4) {
-                        new_table[i + 1][j + 1] = 3;
-                        new_table[i][j] = 4;
-                        done = true;
-                    } else if (i + 1 < board_size && j - 1 >= 0 && new_table[i + 1][j - 1] == 4) {
-                        new_table[i + 1][j - 1] = 3;
-                        new_table[i][j] = 4;
-                        done = true;
-                    }
-
+                    do {
+                        int myrand = rand() % 20;
+                        if (i - 2 >= 0 && j - 2 >= 0 &&
+                            new_table[i - 2][j - 2] == 4 &&
+                            (new_table[i - 1][j - 1] == 0 || new_table[i - 1][j - 1] == 2)) {
+                            new_table[i - 2][j - 2] = 3;
+                            new_table[i][j] = 4;
+                            new_table[i - 1][j - 1] = 4;
+                            done = true;
+                        } else if (i - 2 >= 0 && j + 2 < board_size &&
+                                   new_table[i - 2][j + 2] == 4 &&
+                                   (new_table[i - 1][j + 1] == 0 || new_table[i - 1][j + 1] == 2)) {
+                            new_table[i - 2][j + 2] = 3;
+                            new_table[i][j] = 4;
+                            new_table[i - 1][j + 1] = 4;
+                            done = true;
+                        } else if (i + 2 < board_size &&
+                                   j + 2 < board_size &&
+                                   new_table[i + 2][j + 2] == 4 &&
+                                   (new_table[i + 1][j + 1] == 0 || new_table[i + 1][j + 1] == 2)) {
+                            new_table[i + 2][j + 2] = 3;
+                            new_table[i][j] = 4;
+                            new_table[i + 1][j + 1] = 4;
+                            done = true;
+                        } else if (i + 2 > board_size && j - 2 >= 0 &&
+                                   new_table[i + 2][j - 2] == 4 &&
+                                   (new_table[i + 1][j - 1] == 0 || new_table[i + 1][j - 1] == 2)) {
+                            new_table[i + 2][j - 2] = 3;
+                            new_table[i][j] = 4;
+                            new_table[i + 1][j + 1] = 4;
+                            done = true;
+                        } else if (((myrand == 4 && attempts <= 0) || attempts <= disperazione) && i - 1 >= 0 &&
+                                   j - 1 >= 0 &&
+                                   new_table[i - 1][j - 1] == 4) {
+                            new_table[i - 1][j - 1] = 3;
+                            new_table[i][j] = 4;
+                            done = true;
+                        } else if (((myrand == 5 && attempts <= 0) || attempts <= disperazione) && i - 1 >= 0 &&
+                                   j + 1 < board_size &&
+                                   new_table[i - 1][j + 1] == 4) {
+                            new_table[i - 1][j + 1] = 3;
+                            new_table[i][j] = 4;
+                            done = true;
+                        } else if (((myrand == 6 && attempts <= 0) || attempts <= disperazione) && i + 1 < board_size &&
+                                   j + 1 < board_size &&
+                                   new_table[i + 1][j + 1] == 4) {
+                            new_table[i + 1][j + 1] = 3;
+                            new_table[i][j] = 4;
+                            done = true;
+                        } else if (((myrand == 7 && attempts <= 0) || attempts <= disperazione) && i + 1 < board_size &&
+                                   j - 1 >= 0 &&
+                                   new_table[i + 1][j - 1] == 4) {
+                            new_table[i + 1][j - 1] = 3;
+                            new_table[i][j] = 4;
+                            done = true;
+                        }
+                    } while (!done && (attempts--) >= disperazione);
                 }
                 if (new_table[i][j] == 1) {
-                    if (i - 2 >= 0 && j - 2 >= 0 && new_table[i - 2][j - 2] == 4 && new_table[i - 1][j - 1] == 0) {
-                        new_table[i - 2][j - 2] = 1;
-                        new_table[i][j] = 4;
-                        new_table[i - 1][j - 1] = 4;
-                        done = true;
-                    } else if (i - 2 >= 0 && j + 2 < board_size && new_table[i - 2][j + 2] == 4 &&
-                               new_table[i - 1][j + 1] == 0) {
-                        new_table[i - 2][j + 2] = 1;
-                        new_table[i][j] = 4;
-                        new_table[i - 1][j + 1] = 4;
-                        done = true;
-                    } else if (i - 1 >= 0 && j - 1 >= 0 && new_table[i - 1][j - 1] == 4) {
-                        new_table[i - 1][j - 1] = 1;
-                        new_table[i][j] = 4;
-                        done = true;
-                    } else if (i - 1 >= 0 && j + 1 < board_size && new_table[i - 1][j + 1] == 4) {
-                        new_table[i - 1][j + 1] = 1;
-                        new_table[i][j] = 4;
-                        done = true;
-                    }
+                    do {
+                        int myrand = rand() % 20;
+                        if (i - 2 >= 0 && j - 2 >= 0 &&
+                            new_table[i - 2][j - 2] == 4 &&
+                            new_table[i - 1][j - 1] == 0) {
+                            new_table[i - 2][j - 2] = 1;
+                            new_table[i][j] = 4;
+                            new_table[i - 1][j - 1] = 4;
+                            done = true;
+                        } else if (i - 2 >= 0 && j + 2 < board_size &&
+                                   new_table[i - 2][j + 2] == 4 &&
+                                   new_table[i - 1][j + 1] == 0) {
+                            new_table[i - 2][j + 2] = 1;
+                            new_table[i][j] = 4;
+                            new_table[i - 1][j + 1] = 4;
+                            done = true;
+                        } else if (((myrand == 2 && attempts <= 0) || attempts <= disperazione) && i - 1 >= 0 &&
+                                   j - 1 >= 0 &&
+                                   new_table[i - 1][j - 1] == 4) {
+                            new_table[i - 1][j - 1] = 1;
+                            new_table[i][j] = 4;
+                            done = true;
+                        } else if (((myrand == 3 && attempts <= 0) || attempts <= disperazione) && i - 1 >= 0 &&
+                                   j + 1 < board_size &&
+                                   new_table[i - 1][j + 1] == 4) {
+                            new_table[i - 1][j + 1] = 1;
+                            new_table[i][j] = 4;
+                            done = true;
+                        }
+                    } while (!done && (attempts--) >= disperazione);
                 }
             }
         }
