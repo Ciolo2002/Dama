@@ -13,8 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8429bcf7-35ba-43ae-a028-0f22c50869a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/play.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/play.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/player.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Dama" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Dama" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/player.cpp" afterDir="false" />
     </list>
@@ -99,7 +97,8 @@
       <workItem from="1657748625814" duration="7704000" />
       <workItem from="1657831379454" duration="1042000" />
       <workItem from="1657832547662" duration="9383000" />
-      <workItem from="1658175585462" duration="12774000" />
+      <workItem from="1658175585462" duration="13123000" />
+      <workItem from="1658258978266" duration="4025000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1649890976293</created>
@@ -206,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658184324307</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="aggiunta randomizzazione scelte, funziona male boh">
+      <created>1658189506184</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1658189506184</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +245,8 @@
     <MESSAGE value="store della board + check valida in load board" />
     <MESSAGE value="todo debuggare malloc rotta e contibuare con il metodo move()" />
     <MESSAGE value="fine implentazione stabile della strategia move" />
-    <option name="LAST_COMMIT_MESSAGE" value="fine implentazione stabile della strategia move" />
+    <MESSAGE value="aggiunta randomizzazione scelte, funziona male boh" />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiunta randomizzazione scelte, funziona male boh" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -251,36 +258,36 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="431" y="257" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1657840559304" />
-    <state x="309" y="2" key="CommitChangelistDialog2" timestamp="1658184323857">
+    <state x="309" y="25" key="CommitChangelistDialog2" timestamp="1658189505805">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="309" y="2" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1658184323857" />
+    <state x="309" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1658189505805" />
     <state x="309" y="25" key="CommitChangelistDialog2/0.25.1440.803@0.25.1440.803" timestamp="1657842207826" />
     <state x="309" y="27" key="CommitChangelistDialog2/0.25.1440.805@0.25.1440.805" timestamp="1649890975738" />
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1658189430125">
+    <state width="1398" height="286" key="GridCell.Tab.0.bottom" timestamp="1658263011215">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1658189430125" />
+    <state width="1398" height="286" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1658263011215" />
     <state width="1398" height="205" key="GridCell.Tab.0.bottom/0.25.1440.806@0.25.1440.806" timestamp="1649889665401" />
-    <state width="1398" height="303" key="GridCell.Tab.0.bottom/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657868103958" />
-    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1658189430124">
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1658212170239" />
+    <state width="1398" height="286" key="GridCell.Tab.0.center" timestamp="1658263011213">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1658189430124" />
+    <state width="1398" height="286" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1658263011213" />
     <state width="1398" height="205" key="GridCell.Tab.0.center/0.25.1440.806@0.25.1440.806" timestamp="1649889665400" />
-    <state width="1398" height="303" key="GridCell.Tab.0.center/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657868103958" />
-    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1658189430124">
+    <state width="1398" height="203" key="GridCell.Tab.0.center/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1658212170237" />
+    <state width="1398" height="286" key="GridCell.Tab.0.left" timestamp="1658263011213">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1658189430124" />
+    <state width="1398" height="286" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1658263011213" />
     <state width="1398" height="205" key="GridCell.Tab.0.left/0.25.1440.806@0.25.1440.806" timestamp="1649889665400" />
-    <state width="1398" height="303" key="GridCell.Tab.0.left/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657868103958" />
-    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1658189430124">
+    <state width="1398" height="203" key="GridCell.Tab.0.left/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1658212170236" />
+    <state width="1398" height="286" key="GridCell.Tab.0.right" timestamp="1658263011214">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1658189430124" />
+    <state width="1398" height="286" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1658263011214" />
     <state width="1398" height="205" key="GridCell.Tab.0.right/0.25.1440.806@0.25.1440.806" timestamp="1649889665400" />
-    <state width="1398" height="303" key="GridCell.Tab.0.right/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1657868103958" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1658212170238" />
     <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1657868103959">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -310,16 +317,16 @@
     </state>
     <state x="229" y="44" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1657842022623" />
     <state x="229" y="64" key="SettingsEditor/0.25.1440.806@0.25.1440.806" timestamp="1649889795154" />
-    <state x="320" y="155" key="Vcs.Push.Dialog.v2" timestamp="1658184331266">
+    <state x="320" y="155" key="Vcs.Push.Dialog.v2" timestamp="1658189508352">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="155" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1658184331266" />
+    <state x="320" y="155" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1658189508352" />
     <state x="320" y="163" key="Vcs.Push.Dialog.v2/0.25.1440.803@0.25.1440.803" timestamp="1657842214926" />
     <state x="320" y="164" key="Vcs.Push.Dialog.v2/0.25.1440.805@0.25.1440.805" timestamp="1649890980655" />
-    <state x="397" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1658175587665">
+    <state x="397" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1658258991477">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="397" y="256" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1658175587665" />
+    <state x="397" y="256" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1658258991477" />
     <state x="397" y="256" key="com.intellij.ide.util.TipDialog/0.25.1440.803@0.25.1440.803" timestamp="1656971318963" />
     <state x="397" y="257" key="com.intellij.ide.util.TipDialog/0.25.1440.806@0.25.1440.806" timestamp="1649890340399" />
     <state x="378" y="69" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1658185904849">
@@ -334,10 +341,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="271" y="190" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.900@0.0.1440.900" timestamp="1657842067901" />
-    <state x="383" y="85" width="674" height="729" key="find.popup" timestamp="1658188472589">
+    <state x="383" y="85" width="827" height="729" key="find.popup" timestamp="1658261923526">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="383" y="85" width="674" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1658188472589" />
+    <state x="383" y="85" width="827" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1658261923526" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1657833661140">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -355,16 +362,16 @@
     <breakpoint-manager>
       <default-breakpoints>
         <breakpoint enabled="true" log-message="true" log-stack="true" type="CidrExceptionBreakpoint">
-          <dependency master-id="0" />
+          <dependency master-id="1" />
           <properties caught="ANY_EXCEPTION">
             <option name="whenCaught" value="ANY_EXCEPTION" />
           </properties>
         </breakpoint>
         <breakpoint enabled="true" type="javascript-exception">
-          <dependency id="0" master-id="1" />
+          <dependency id="1" master-id="0" />
         </breakpoint>
         <breakpoint enabled="true" type="python-exception">
-          <dependency id="1" />
+          <dependency id="0" />
           <properties notifyOnTerminate="true" exception="BaseException">
             <option name="notifyOnTerminate" value="true" />
           </properties>
