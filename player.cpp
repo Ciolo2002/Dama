@@ -38,6 +38,8 @@ struct Player::Impl {
 
     bool wins(int player_numer, Pcell source) const;
 
+    int recurrence(Pcell head, Pcell source) const;
+
     Pcell at(int pos);
 
 
@@ -100,6 +102,24 @@ Player::Impl::Pcell Player::Impl::copy(Pcell source) const {
         }
         dest->next = copy(source->next);
         return dest;
+    }
+}
+
+int Player::Impl::recurrence(Pcell testa, Pcell source) const {
+    if (source == nullptr)
+        return 0;
+    else {
+        bool check = true;
+        for (int i = 0; i < board_size && check; i++) {
+            for (int j = 0; j < board_size && check; j++) {
+                check &= (testa->info[i][j] == source->info[i][j]);
+            }
+        }
+        if (check) {
+            return 1 + recurrence(testa, source->next);
+        } else {
+            return 0 + recurrence(testa, source->next);
+        }
     }
 }
 
@@ -673,5 +693,6 @@ bool Player::loses() const {
 }
 
 int Player::recurrence() const {
-    return 0;
+
+    return pimpl->recurrence(pimpl->head, pimpl->head);
 }

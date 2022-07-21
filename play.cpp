@@ -107,9 +107,7 @@ int main() {
             p2.store_board("board_" + std::to_string(i) + ".txt");
 
 
-            if (p1.wins()) {
-                exit(55);
-            }
+            cout << "RECURERENCE  " << p2.recurrence() << std::endl;
         }
         catch (player_exception e) {
             std::cerr << e.msg << std::endl;
