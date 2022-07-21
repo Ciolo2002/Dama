@@ -34,6 +34,8 @@ struct Player::Impl {
 
     Pcell copy(Pcell source) const;
 
+    Pcell removeHead(Pcell source);
+
     Pcell at(int pos);
 
 
@@ -96,6 +98,19 @@ Player::Impl::Pcell Player::Impl::copy(Pcell source) const {
         }
         dest->next = copy(source->next);
         return dest;
+    }
+}
+
+
+Player::Impl::Pcell Player::Impl::removeHead(Pcell source) {
+    if (source == nullptr) {
+        throw player_exception{player_exception::index_out_of_bounds, "The head of the list does not exists"};
+        return nullptr;
+    } else {
+        auto new_head = source;
+        source = source->next;
+        delete new_head;
+        return source;
     }
 }
 
@@ -602,7 +617,7 @@ bool Player::valid_move() const {
 }
 
 void Player::pop() {
-
+    pimpl->head = pimpl->removeHead(pimpl->head);
 }
 
 bool Player::wins(int player_nr) const {

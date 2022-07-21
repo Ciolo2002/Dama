@@ -71,7 +71,7 @@ int main() {
      cout << endl;
      cout << endl;
      cout << endl; */
-
+    int board_size = 8;
 
 
     while (i < 200) {
@@ -81,8 +81,23 @@ int main() {
             p1.load_board("board_" + std::to_string(i++) + ".txt");
             p1.move();
 
+
+            /*if (i == 26) { TEST POP
+                cout << p1(0, 4, 0);
+                cout << "  ARRIVATOOOOOOOOO  ";
+                p1.load_board("board_" + std::to_string(i) + ".txt");
+                p1.move();
+                cout << p1(0, 4, 0);
+
+                p1.pop();
+
+                cout << "  pop  " << p1(0, 4, 0);
+            } *(
+
             std::cout << "SALVATA BOARD" << i << std::endl;
             p1.store_board("board_" + std::to_string(i) + ".txt");
+
+
             if (!p1.valid_move()) {
                 exit(43);
             }
