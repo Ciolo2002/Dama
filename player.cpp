@@ -36,6 +36,8 @@ struct Player::Impl {
 
     Pcell removeHead(Pcell source);
 
+    bool wins(int player_numer, Pcell source) const;
+
     Pcell at(int pos);
 
 
@@ -101,6 +103,34 @@ Player::Impl::Pcell Player::Impl::copy(Pcell source) const {
     }
 }
 
+
+bool Player::Impl::wins(int player_numer, Pcell source) const {
+
+    if (player_numer != 1 && player_numer != 2) {
+        throw player_exception{player_exception::index_out_of_bounds, "Il numero del player deve essere 1 o 2"};
+    }
+    if (source == nullptr) {
+        throw player_exception{player_exception::index_out_of_bounds, "Non ho trovato alcuna board in history"};
+    }
+    int cnt_1 = 0;
+    int cnt_2 = 0;
+    for (int i = 0; i < board_size; i++) {
+        for (int j = 0; j < board_size; j++) {
+            if (source->info[i][j] == 0 || source->info[i][j] == 2) {
+                cnt_1++;
+            } else if (source->info[i][j] == 1 || source->info[i][j] == 3) {
+                cnt_2++;
+            }
+        }
+    }
+    if (player_numer == 1) {
+        return cnt_2 == 0;
+    } else if (player_numer == 2) {
+        return cnt_1 == 0;
+    }
+    return false;
+
+}
 
 Player::Impl::Pcell Player::Impl::removeHead(Pcell source) {
     if (source == nullptr) {
@@ -621,19 +651,25 @@ void Player::pop() {
 }
 
 bool Player::wins(int player_nr) const {
-    return false;
+    return pimpl->wins(player_nr, pimpl->head);
 }
 
 bool Player::wins() const {
-    return false;
+    return pimpl->wins(pimpl->player_nr, pimpl->head);
 }
 
 bool Player::loses(int player_nr) const {
-    return false;
+    if (player_nr == 1) {
+        return (pimpl->wins(2, pimpl->head));
+    }
+    return (pimpl->wins(1, pimpl->head));
 }
 
 bool Player::loses() const {
-    return false;
+    if (pimpl->player_nr == 1) {
+        return (pimpl->wins(2, pimpl->head));
+    }
+    return (pimpl->wins(1, pimpl->head));
 }
 
 int Player::recurrence() const {

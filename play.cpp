@@ -92,15 +92,12 @@ int main() {
                 p1.pop();
 
                 cout << "  pop  " << p1(0, 4, 0);
-            } *(
+            } */
 
             std::cout << "SALVATA BOARD" << i << std::endl;
             p1.store_board("board_" + std::to_string(i) + ".txt");
 
 
-            if (!p1.valid_move()) {
-                exit(43);
-            }
             std::cout << "PLAYER 2:" << std::endl;
             std::cout << "CARICATA BOARD:" << i << std::endl;
             p2.load_board("board_" + std::to_string(i++) + ".txt");
@@ -109,8 +106,9 @@ int main() {
             std::cout << "SALVATA BOARD:" << i << std::endl;
             p2.store_board("board_" + std::to_string(i) + ".txt");
 
-            if (!p2.valid_move()) {
-                exit(44);
+
+            if (p1.wins()) {
+                exit(55);
             }
         }
         catch (player_exception e) {
