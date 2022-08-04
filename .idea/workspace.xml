@@ -13,26 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8429bcf7-35ba-43ae-a028-0f22c50869a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/play.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/play.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/player.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/verify.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Dama.dir/verify.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Dama" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Dama" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Dama.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Dama.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/play.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/player.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/player.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/verify.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +103,7 @@
       <workItem from="1658437609345" duration="5057000" />
       <workItem from="1658876135309" duration="746000" />
       <workItem from="1659596375171" duration="289000" />
-      <workItem from="1659645742323" duration="3634000" />
+      <workItem from="1659645742323" duration="4730000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1649890976293</created>
@@ -270,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658442953264</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fix del boh">
+      <created>1659651358306</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1659651358307</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +298,8 @@
     <MESSAGE value="pop() tested" />
     <MESSAGE value="wins and loses tested" />
     <MESSAGE value="recurrence tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="recurrence tested" />
+    <MESSAGE value="fix del boh" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix del boh" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -321,37 +311,38 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="431" y="257" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1658876612100" />
-    <state x="309" y="25" key="CommitChangelistDialog2" timestamp="1658442952815">
-      <screen x="0" y="25" width="1440" height="803" />
+    <state x="309" y="25" key="CommitChangelistDialog2" timestamp="1659651357640">
+      <screen x="0" y="25" width="1440" height="810" />
     </state>
     <state x="309" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1658441760538" />
     <state x="309" y="25" key="CommitChangelistDialog2/0.25.1440.803@0.25.1440.803" timestamp="1658442952815" />
+    <state x="309" y="25" key="CommitChangelistDialog2/0.25.1440.810@0.25.1440.810" timestamp="1659651357640" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1659651200945">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1659651200945" />
-    <state width="1398" height="286" key="GridCell.Tab.0.bottom" timestamp="1659651197137">
+    <state width="1398" height="286" key="GridCell.Tab.0.bottom" timestamp="1659655096358">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="286" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1659651197137" />
+    <state width="1398" height="286" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1659655096358" />
     <state width="1398" height="286" key="GridCell.Tab.0.bottom/0.25.1440.803@0.25.1440.803" timestamp="1658272756477" />
     <state width="1398" height="286" key="GridCell.Tab.0.bottom/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1658473004828" />
-    <state width="1398" height="286" key="GridCell.Tab.0.center" timestamp="1659651197137">
+    <state width="1398" height="286" key="GridCell.Tab.0.center" timestamp="1659655096358">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="286" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1659651197137" />
+    <state width="1398" height="286" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1659655096358" />
     <state width="1398" height="286" key="GridCell.Tab.0.center/0.25.1440.803@0.25.1440.803" timestamp="1658272756476" />
     <state width="1398" height="286" key="GridCell.Tab.0.center/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1658473004827" />
-    <state width="1398" height="286" key="GridCell.Tab.0.left" timestamp="1659651197136">
+    <state width="1398" height="286" key="GridCell.Tab.0.left" timestamp="1659655096357">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="286" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1659651197136" />
+    <state width="1398" height="286" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1659655096357" />
     <state width="1398" height="286" key="GridCell.Tab.0.left/0.25.1440.803@0.25.1440.803" timestamp="1658272756476" />
     <state width="1398" height="286" key="GridCell.Tab.0.left/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1658473004826" />
-    <state width="1398" height="286" key="GridCell.Tab.0.right" timestamp="1659651197137">
+    <state width="1398" height="286" key="GridCell.Tab.0.right" timestamp="1659655096358">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="286" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1659651197137" />
+    <state width="1398" height="286" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1659655096358" />
     <state width="1398" height="286" key="GridCell.Tab.0.right/0.25.1440.803@0.25.1440.803" timestamp="1658272756477" />
     <state width="1398" height="286" key="GridCell.Tab.0.right/1440.-243.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1658473004828" />
     <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1657868103959">
@@ -382,10 +373,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="44" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1657842022623" />
-    <state x="320" y="163" key="Vcs.Push.Dialog.v2" timestamp="1658442960825">
-      <screen x="0" y="25" width="1440" height="803" />
+    <state x="320" y="155" key="Vcs.Push.Dialog.v2" timestamp="1659651360837">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="155" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1658441768572" />
+    <state x="320" y="155" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1659651360837" />
     <state x="320" y="163" key="Vcs.Push.Dialog.v2/0.25.1440.803@0.25.1440.803" timestamp="1658442960825" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1658269849471">
       <screen x="0" y="0" width="1440" height="900" />
@@ -405,10 +396,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="271" y="190" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.900@0.0.1440.900" timestamp="1657842067901" />
-    <state x="383" y="85" width="827" height="729" key="find.popup" timestamp="1659651044744">
+    <state x="383" y="85" width="827" height="729" key="find.popup" timestamp="1659654179306">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="383" y="85" width="827" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1659651044744" />
+    <state x="383" y="85" width="827" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1659654179306" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1657833661140">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

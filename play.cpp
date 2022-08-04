@@ -71,7 +71,6 @@ int main() {
      cout << endl;
      cout << endl;
      cout << endl; */
-    int board_size = 8;
 
 
     while (i < 200) {
