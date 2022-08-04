@@ -30,20 +30,20 @@ int main(int argc, char **argv){
         if (infile.good()) {
 
             cout << "Reading board " << board_name << endl;
-		
+
 			infile.close();
 			std::this_thread::sleep_for (std::chrono::milliseconds(100));
-			
+
 			p.load_board(board_name);
 			p.move();
 			board_name =  "board_" + std::to_string(++round) + ".txt";
 			p.store_board(board_name);
 			round++;
-			
+
 		}
-		
+
 	}
-	
+
 } */
 
 
@@ -107,7 +107,13 @@ int main() {
             p2.store_board("board_" + std::to_string(i) + ".txt");
 
 
-            cout << "RECURERENCE  " << p2.recurrence() << std::endl;
+            if (p1.wins()) {
+                exit(55);
+            }
+
+            if (p2.wins()) {
+                exit(52);
+            }
         }
         catch (player_exception e) {
             std::cerr << e.msg << std::endl;

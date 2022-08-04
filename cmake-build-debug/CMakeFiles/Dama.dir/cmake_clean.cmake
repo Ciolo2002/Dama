@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Dama.dir/play.cpp.o"
   "CMakeFiles/Dama.dir/player.cpp.o"
-  "CMakeFiles/Dama.dir/verify.cpp.o"
   "Dama"
   "Dama.pdb"
 )

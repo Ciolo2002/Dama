@@ -7,6 +7,3 @@ CMakeFiles/Dama.dir/play.cpp.o: ../player.hpp
 CMakeFiles/Dama.dir/player.cpp.o: ../player.cpp
 CMakeFiles/Dama.dir/player.cpp.o: ../player.hpp
 
-CMakeFiles/Dama.dir/verify.cpp.o: ../player.hpp
-CMakeFiles/Dama.dir/verify.cpp.o: ../verify.cpp
-

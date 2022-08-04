@@ -91,9 +91,6 @@
 		<Unit filename="/Users/omarceretta/CLionProjects/Dama/player.hpp">
 			<Option target="Dama"/>
 		</Unit>
-		<Unit filename="/Users/omarceretta/CLionProjects/Dama/verify.cpp">
-			<Option target="Dama"/>
-		</Unit>
 		<Unit filename="/Users/omarceretta/CLionProjects/Dama/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

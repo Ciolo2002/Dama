@@ -21,7 +21,6 @@ struct Player::Impl {
     struct Cell {
         int info[board_size][board_size];
         Cell *next;
-
     };
 
     void print_board(const int(&board)[board_size][board_size]) const;
@@ -30,7 +29,7 @@ struct Player::Impl {
 
     void destroy(Pcell pc);
 
-    void prepend(const int(&board)[board_size][board_size]);
+    void prepend(const int board[board_size][board_size]);
 
     Pcell copy(Pcell source) const;
 
@@ -43,7 +42,7 @@ struct Player::Impl {
     Pcell at(int pos);
 
 
-    void write_on_file(const int(&board)[board_size][board_size], const string &filename) const;
+    void write_on_file(const int board[board_size][board_size], const string &filename) const;
 
 
     Pcell head;
@@ -174,7 +173,7 @@ void Player::Impl::print_board(const int(&board)[board_size][board_size]) const 
     for (int i = board_size - 1; i >= 0; --i) {
         cout << "i: " << i << ' ';
         for (int j = board_size - 1; j >= 0; --j) {
-            char pezzo;
+            char pezzo = ' ';
 
             switch (board[i][j]) {
                 case 0:
@@ -191,6 +190,9 @@ void Player::Impl::print_board(const int(&board)[board_size][board_size]) const 
                     break;
                 case 4:
                     pezzo = ' ';
+                    break;
+                default:
+                    throw player_exception{player_exception::index_out_of_bounds, "Not a valid char"};
                     break;
             }
             cout << pezzo << ' ';
@@ -246,15 +248,12 @@ Player::piece Player::operator()(int r, int c, int history_offset) const {
 
 
 void Player::move() {
-
-
-    int new_table[board_size][board_size] = {};
+    int new_table[board_size][board_size] = {0};
     for (int i = 0; i < board_size; i++) {
         for (int j = 0; j < board_size; j++) {
             new_table[i][j] = this->pimpl->head->info[i][j];
         }
     }
-
     bool done = false;
     int maxtutto = 70000;
 
@@ -269,28 +268,28 @@ void Player::move() {
                 if (new_table[i][j] == 2) {
                     do {
                         int myrand = rand() % 250;
-                        if (i + 2 < board_size && j + 2 < board_size &&
-                            new_table[i + 2][j + 2] == 4 &&
-                            (new_table[i + 1][j + 1] == 1 || new_table[i + 1][j + 1] == 3)) {
+                        if ((i + 2 < board_size && j + 2 < board_size) && (
+                                new_table[i + 2][j + 2] == 4 &&
+                                (new_table[i + 1][j + 1] == 1 || new_table[i + 1][j + 1] == 3))) {
                             new_table[i + 2][j + 2] = 2;
                             new_table[i][j] = 4;
                             new_table[i + 1][j + 1] = 4;
                             done = true;
-                        } else if (i + 2 < board_size && j - 2 >= 0 &&
+                        } else if ((i + 2 < board_size && j - 2 >= 0) &&
                                    new_table[i + 2][j - 2] == 4 &&
                                    (new_table[i + 1][j - 1] == 1 || new_table[i + 1][j + 1] == 3)) {
                             new_table[i + 2][j - 2] = 2;
                             new_table[i][j] = 4;
                             new_table[i + 1][j - 1] = 4;
                             done = true;
-                        } else if (i - 2 >= 0 && j - 2 >= 0 &&
+                        } else if ((i - 2 >= 0 && j - 2 >= 0) &&
                                    new_table[i - 2][j - 2] == 4 &&
                                    (new_table[i - 1][j - 1] == 1 || new_table[i - 1][j + 1] == 3)) {
                             new_table[i - 2][j - 2] = 2;
                             new_table[i][j] = 4;
                             new_table[i - 1][j - 1] = 4;
                             done = true;
-                        } else if (myrand == 3 && i - 2 >= 0 &&
+                        } else if ((myrand == 3 && i - 2 >= 0) &&
                                    j + 2 < board_size &&
                                    new_table[i - 2][j + 2] == 4 &&
                                    (new_table[i - 1][j + 1] == 1 || new_table[i - 1][j + 1] == 3)) {
@@ -298,19 +297,19 @@ void Player::move() {
                             new_table[i][j] = 4;
                             new_table[i - 1][j + 1] = 4;
                             done = true;
-                        } else if (myrand == 4 && i - 1 >= 0 &&
+                        } else if ((myrand == 4 && i - 1 >= 0) &&
                                    j - 1 >= 0 &&
                                    new_table[i - 1][j - 1] == 4) {
                             new_table[i - 1][j - 1] = 2;
                             new_table[i][j] = 4;
                             done = true;
-                        } else if (myrand == 5 && i - 1 >= 0 &&
+                        } else if ((myrand == 5 && i - 1 >= 0) &&
                                    j + 1 < board_size &&
                                    new_table[i - 1][j + 1] == 4) {
                             new_table[i - 1][j + 1] = 2;
                             new_table[i][j] = 4;
                             done = true;
-                        } else if (myrand == 6 && i + 1 < board_size &&
+                        } else if ((myrand == 6 && i + 1 < board_size) &&
                                    j + 1 < board_size &&
                                    new_table[i + 1][j + 1] == 4) {
                             new_table[i + 1][j + 1] = 2;
@@ -389,17 +388,17 @@ void Player::move() {
                             new_table[i][j] = 4;
                             new_table[i - 1][j + 1] = 4;
                             done = true;
-                        } else if (i + 2 < board_size &&
-                                   j + 2 < board_size &&
+                        } else if (((i + 2) < board_size &&
+                                    (j + 2) < board_size) &&
                                    new_table[i + 2][j + 2] == 4 &&
                                    (new_table[i + 1][j + 1] == 0 || new_table[i + 1][j + 1] == 2)) {
                             new_table[i + 2][j + 2] = 3;
                             new_table[i][j] = 4;
                             new_table[i + 1][j + 1] = 4;
                             done = true;
-                        } else if (i + 2 > board_size && j - 2 >= 0 &&
-                                   new_table[i + 2][j - 2] == 4 &&
-                                   (new_table[i + 1][j - 1] == 0 || new_table[i + 1][j - 1] == 2)) {
+                        } else if (((i + 2) > board_size && (j - 2) >= 0) && (new_table[i + 2][j - 2] == 4 &&
+                                                                              (new_table[i + 1][j - 1] == 0 ||
+                                                                               new_table[i + 1][j - 1] == 2))) {
                             new_table[i + 2][j - 2] = 3;
                             new_table[i][j] = 4;
                             new_table[i + 1][j + 1] = 4;
@@ -505,12 +504,12 @@ void Player::load_board(const string &filename) {
     ifstream input(filename, fstream::in);
     if (input.fail()) {
         throw player_exception{player_exception::missing_file,
-                               "not existing file: " + filename + ' ' + strerror(errno)};
+                               "not existing file: " + filename + ' '};
     }
     if (filename.substr(filename.find_last_of('.') + 1) != "txt") {
         throw player_exception{player_exception::missing_file, "not a txt file file: " + filename};
     }
-    int tmp_board[board_size][board_size];
+    int tmp_board[board_size][board_size] = {0};
     string line;
     short pieces_cnt = 0;
     int i = board_size;
@@ -555,7 +554,7 @@ void Player::load_board(const string &filename) {
     pimpl->prepend(tmp_board);
 }
 
-void Player::Impl::prepend(const int(&board)[board_size][board_size]) {
+void Player::Impl::prepend(const int board[board_size][board_size]) {
     Pcell newone = new Cell;
     for (int i = 0; i < board_size; i++) {
         for (int j = 0; j < board_size; j++) {
@@ -571,7 +570,7 @@ void Player::store_board(const string &filename, int history_offset) const {
 }
 
 
-void Player::Impl::write_on_file(const int (&board)[board_size][board_size], const string &filename) const {
+void Player::Impl::write_on_file(const int board[board_size][board_size], const string &filename) const {
     ofstream out(filename, ios::out);
     if (filename.substr(filename.find_last_of('.') + 1) != "txt") {
         throw player_exception{player_exception::missing_file, "not a txt file for output file: " + filename};

@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(Dama
-    play.cpp
-    player.cpp
-    player.hpp
-    verify.cpp)
+        play.cpp
+        player.cpp
+        player.hpp
+        )

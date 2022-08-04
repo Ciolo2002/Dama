@@ -177,33 +177,6 @@ player.cpp.s:
 	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/player.cpp.s
 .PHONY : player.cpp.s
 
-verify.o: verify.cpp.o
-
-.PHONY : verify.o
-
-# target to build an object file
-verify.cpp.o:
-	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/verify.cpp.o
-.PHONY : verify.cpp.o
-
-verify.i: verify.cpp.i
-
-.PHONY : verify.i
-
-# target to preprocess a source file
-verify.cpp.i:
-	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/verify.cpp.i
-.PHONY : verify.cpp.i
-
-verify.s: verify.cpp.s
-
-.PHONY : verify.s
-
-# target to generate assembly for a file
-verify.cpp.s:
-	$(MAKE) -f CMakeFiles/Dama.dir/build.make CMakeFiles/Dama.dir/verify.cpp.s
-.PHONY : verify.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,9 +192,6 @@ help:
 	@echo "... player.o"
 	@echo "... player.i"
 	@echo "... player.s"
-	@echo "... verify.o"
-	@echo "... verify.i"
-	@echo "... verify.s"
 .PHONY : help
 
 

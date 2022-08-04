@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/omarceretta/CLionProjects/Dama/play.cpp" "/Users/omarceretta/CLionProjects/Dama/cmake-build-debug/CMakeFiles/Dama.dir/play.cpp.o"
   "/Users/omarceretta/CLionProjects/Dama/player.cpp" "/Users/omarceretta/CLionProjects/Dama/cmake-build-debug/CMakeFiles/Dama.dir/player.cpp.o"
-  "/Users/omarceretta/CLionProjects/Dama/verify.cpp" "/Users/omarceretta/CLionProjects/Dama/cmake-build-debug/CMakeFiles/Dama.dir/verify.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
